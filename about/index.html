@@ -43,7 +43,7 @@
     
     <title>
         
-            归档: 2018/5 | 
+            关于我 | 
         
         撕裂之谷
     </title>
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="撕裂之谷">
-    <meta name="msapplication-starturl" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/archives/2018/05/">
+    <meta name="msapplication-starturl" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="撕裂之谷">
@@ -230,9 +230,9 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/archives/2018/05/">
+    <meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2018/5 | 撕裂之谷">
+    <meta property="og:title" content="关于我 | 撕裂之谷">
     <meta property="og:image" content="/bpascal.github.io/img/favicon.png">
     <meta property="og:description" content="">
     
@@ -244,7 +244,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/archives/2018/05/index.html" />
+        <link rel="canonical" href="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -284,94 +284,271 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
-    
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/bpascal.github.io/2018/05/18/hello-world/">hello，撕裂之谷</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            世界上只有0.0001%的人来到过撕裂之谷，对于你和我来说我们都是幸运的
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/bpascal.github.io/2018/05/18/hello-world/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/bpascal.github.io/img/avatar.png" width="44px" height="44px" alt="双例模式's avatar">
-            </div>
-            <div>
-                <strong>双例模式</strong>
-                <span>5月 18, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/bpascal.github.io/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/bpascal.github.io/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                关于我
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/bpascal.github.io/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>双例模式</strong>
+        <span>5月 19, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="自我评价"><a href="#自我评价" class="headerlink" title="自我评价"></a>自我评价</h2><ol>
+<li>热情，勤奋，好学，低调，责任心强，有良好的沟通能力和团队合作精神，以及良好的计算机软件开发和设计基础和较强的学习能力；</li>
+<li>轻度极客，热爱技术，热爱黑科技，热爱互联网并持续关注互联网行业，希望能够在互联网行业发展中实现自身的价值；</li>
+<li>有多年的项目和团队管理经验，能够较高效地管理10-20人的团队完成设计和开发任务，能够根据需求和人员情况制定合理的团队工作计划并对开发过程进行及时有效的管理；熟悉敏捷、CMMI等软件开发管理体系，并且执行过多年的敏捷开发管理；</li>
+<li>有丰富的各种应用程序开发经验，有多个成熟上线的项目，熟悉各类程序开发技能，包括Java技术栈下的各类后台程序开发、Android/iOS等客户端应用程序开发，以及python爬虫和应用程序的开发，同时也有比较丰富的Oracle和MySql等主流数据库的开发和运维经验以及Linux、nginx等服务器环境运维经验；</li>
+<li>有多年的电信行业BSS和OSS支撑系统的设计、开发、实施和维护经验及较丰富的电信行业业务知识，可以很快适应相关行业的需求、设计和开发岗位；</li>
+</ol>
+<hr>
+<h1 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h1><ul>
+<li>赖骏劼/男/1984</li>
+<li>本科/湖南师范大学计算机系 </li>
+<li>工作年限：11年</li>
+<li>技术博客：<a href="https://www.rivendell.vip" target="_blank" rel="noopener">撕裂之谷</a></li>
+<li>Github：<a href="https://github.com/bpascal" target="_blank" rel="noopener">双例模式</a></li>
+<li>期望职位：高级程序员，架构师</li>
+<li>期望薪资：税前月薪16k~20k，特别喜欢的公司可例外</li>
+</ul>
+<hr>
+<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><ul>
+<li>手机：15308408401</li>
+<li>Email：<a href="mailto:bpascal.cn@gmail.com" target="_blank" rel="noopener">bpascal.cn@gmail.com</a></li>
+<li>QQ：286636748</li>
+</ul>
+<hr>
+<h1 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h1><h2 id="湖南机器爸爸智能科技有限公司-（-2017年8月-至今-）"><a href="#湖南机器爸爸智能科技有限公司-（-2017年8月-至今-）" class="headerlink" title="湖南机器爸爸智能科技有限公司 （ 2017年8月 ~ 至今 ）"></a>湖南机器爸爸智能科技有限公司 （ 2017年8月 ~ 至今 ）</h2><h3 id="天天骑牛个人号服务机器人"><a href="#天天骑牛个人号服务机器人" class="headerlink" title="天天骑牛个人号服务机器人"></a>天天骑牛个人号服务机器人</h3><ul>
+<li>技术栈：itchat框架+Scrapy爬虫</li>
+<li>项目描述：与天天骑牛公众号合作，提供骑牛电报服务，即将各大股市资讯网站的资讯新闻以快讯的形式通过微信服务机器人进行播报</li>
+<li>责任描述：负责项目的前后端设计及开发的编码测试等全部工作，项目三天即完成框架搭建及开发，五天上线并为数千用户提供7*24小时稳定服务</li>
+</ul>
+<h3 id="彩士多彩票销售平台"><a href="#彩士多彩票销售平台" class="headerlink" title="彩士多彩票销售平台"></a>彩士多彩票销售平台</h3><ul>
+<li>技术栈：Hodor框架(基于springboot+mybatis)+微信小程序SDK+vue+微信公众号SDK+Scrapy爬虫</li>
+<li>项目描述：彩士多彩票服务平台，包括4个微信小程序，微信公众号平台的前后端以及后台管理平台和Scrapy爬虫服务，主要为线下彩票店提供彩票出售、兑奖、核查等服务，包括加盟运营和独立运营等多种模式，项目网址：<a href="https://www.caishiduo.com" target="_blank" rel="noopener">https://www.caishiduo.com</a></li>
+<li>责任描述：项目研发的总负责，负责项目各端的研发安排及后台的编码工作，并且安排和管理团队在开发过程中的沟通交流及进度的管控，项目于两个月完成多轮迭代后上线，小程序用户接近10万，日活1000左右；公众号接入数十家商户，并实现OEM版本开箱即用，超快分支并部署。</li>
+</ul>
+<h3 id="机器爸爸公众号"><a href="#机器爸爸公众号" class="headerlink" title="机器爸爸公众号"></a>机器爸爸公众号</h3><ul>
+<li>技术栈：JFinal框架+微信公众号SDK+python爬虫</li>
+<li>项目描述：该项目为湖南机器爸爸智能科技有限公司官方公众号“机器爸爸”的H5应用，主要功能为通过从各类微博、论坛及微信公众号上获取各类少儿编程及机器人教育的资讯及文章等，然后通过程序筛选及用户订阅，分别提供给不同的用户相互不同的内容</li>
+<li>责任描述：项目研发的总负责，负责项目各端的研发安排及后台的编码工作，并且安排和管理团队在开发过程中的沟通交流及进度的管控</li>
+</ul>
+<h2 id="湖南省思阔信息科技有限公司-（-2016年4月-2017年7月-）"><a href="#湖南省思阔信息科技有限公司-（-2016年4月-2017年7月-）" class="headerlink" title="湖南省思阔信息科技有限公司 （ 2016年4月 ~ 2017年7月 ）"></a>湖南省思阔信息科技有限公司 （ 2016年4月 ~ 2017年7月 ）</h2><h3 id="相知相遇共享雨伞公众号"><a href="#相知相遇共享雨伞公众号" class="headerlink" title="相知相遇共享雨伞公众号"></a>相知相遇共享雨伞公众号</h3><ul>
+<li>技术栈：JFinal框架+微信公众号SDK+AIO长连接工具</li>
+<li>项目描述：该项目为公众号“相知相遇共享雨伞”的H5应用服务，主要提供用户的登录注册、充值查账、借伞还伞等功能操作，以及管理员的批量处理和后台管理等功能。</li>
+<li>责任描述：项目研发的总负责，负责项目各端的研发安排及后台的编码工作，并且安排和管理团队在开发过程中的沟通交流及进度的管控。一个月时间完成项目上线，上线三个月后用户达到10万，服务器运行可靠</li>
+</ul>
+<h3 id="幼视通车载刷卡系统客户端"><a href="#幼视通车载刷卡系统客户端" class="headerlink" title="幼视通车载刷卡系统客户端"></a>幼视通车载刷卡系统客户端</h3><ul>
+<li>技术栈：Android客户端环境(Nymeria框架)+蓝牙BLE+串口通讯协议</li>
+<li>项目描述：本产品为幼视通幼教管理平台的配套车载打卡软件，由安卓手机与专用的刷卡配套设备配合使用，手机通过蓝牙BLE协议与设备进行连接，通过串口指令进行指令传输，实现刷卡的数据交互及功能对接。</li>
+<li>责任描述：负责整个项目的安卓客户端的编码及开发，同时负责与设备厂商及应用后台开发人员进行需求沟通和技术沟通</li>
+</ul>
+<h3 id="园长妈妈"><a href="#园长妈妈" class="headerlink" title="园长妈妈"></a>园长妈妈</h3><ul>
+<li>技术栈：Spring mvc+mybatis+阿里云OSS+Android客户端环境(Nymeria框架)</li>
+<li>项目描述：一款包含幼儿园师生信息管理、教学生活动态发布及浏览、家校沟通、育儿资讯管理、育儿经验沟通交流、小型幼教电商平台等功能的综合化一站式幼教服务平台。</li>
+<li>责任描述：主导研发工作的开展，负责包含两个APP(Android、iOS客户端)、APP后台、管理平台、微信后台以及代理商管理后台等几个业务平台的研发工作协同和管控，直接参与Android客户端和APP后台两个业务系统的开发编码；必要情况下，也参与一些需求梳理和产品功能设计等工作。</li>
+</ul>
+<hr>
+<h2 id="湖南云融信息技术有限公司-（-2014年12月-2016年4月-）"><a href="#湖南云融信息技术有限公司-（-2014年12月-2016年4月-）" class="headerlink" title="湖南云融信息技术有限公司 （ 2014年12月 ~ 2016年4月 ）"></a>湖南云融信息技术有限公司 （ 2014年12月 ~ 2016年4月 ）</h2><h3 id="聚有钱理财平台"><a href="#聚有钱理财平台" class="headerlink" title="聚有钱理财平台"></a>聚有钱理财平台</h3><ul>
+<li>技术栈：Spring mvc</li>
+<li>项目描述：官方网站:<a href="http://www.juyouqian.com，是一个理财中间平台，提供普通用户的理财申购、赎回，活动运营等功能" target="_blank" rel="noopener">www.juyouqian.com，是一个理财中间平台，提供普通用户的理财申购、赎回，活动运营等功能</a></li>
+<li>责任描述：主要负责整个研发团队的管理，负责前期的Android 和 iOS客户端开发以及后续的后台需求研发及整个研发团队的工作协同和开发管控。用户数半年突破10万，全年收入达到20亿</li>
+</ul>
+<h3 id="沃百富理财平台"><a href="#沃百富理财平台" class="headerlink" title="沃百富理财平台"></a>沃百富理财平台</h3><ul>
+<li>技术栈：Spring mvc</li>
+<li>项目描述：联通官方理财平台，提供用户理财申购赎回等功能，与外部债权机构进行债权的发售和收益回购等功能，为公司主打项目，用户数超过300万，日活10万以上，月成交额8亿以上</li>
+<li>责任描述：参与项目开发支撑，负责部分功能模块的编码及测试工作</li>
+</ul>
+<hr>
+<h2 id="湖南高阳通联信息技术有限公司-（-2013年4月-2014年11月-）"><a href="#湖南高阳通联信息技术有限公司-（-2013年4月-2014年11月-）" class="headerlink" title="湖南高阳通联信息技术有限公司 （ 2013年4月 ~ 2014年11月 ）"></a>湖南高阳通联信息技术有限公司 （ 2013年4月 ~ 2014年11月 ）</h2><h3 id="手机支付安全支付组件"><a href="#手机支付安全支付组件" class="headerlink" title="手机支付安全支付组件"></a>手机支付安全支付组件</h3><ul>
+<li>技术栈：Android</li>
+<li>项目描述：为中国移动手机支付的合作商户提供商户客户端的支付插件，实现支付功能的接入。</li>
+<li>责任描述：负责项目中的安卓客户端的开发及后台接口联调工作，以及管理项目团队中的其他安卓客户端开发成员的开发工作安排和协调。</li>
+</ul>
+<h3 id="无锡、苏州圈存平台客户端"><a href="#无锡、苏州圈存平台客户端" class="headerlink" title="无锡、苏州圈存平台客户端"></a>无锡、苏州圈存平台客户端</h3><ul>
+<li>技术栈：Android</li>
+<li>项目描述：主要实现使用open mobile sdk手机对特殊的具有NFC功能的SIM卡进行智能数据的读写，实现对卡进行充值的功能。</li>
+<li>责任描述：负责项目中的安卓客户端所有功能开发及后台接口联调工作。</li>
+</ul>
+<hr>
+<h2 id="天闻数媒科技-湖南-有限公司-（-2012年7月-2013年3月-）"><a href="#天闻数媒科技-湖南-有限公司-（-2012年7月-2013年3月-）" class="headerlink" title="天闻数媒科技(湖南)有限公司 （ 2012年7月 ~ 2013年3月 ）"></a>天闻数媒科技(湖南)有限公司 （ 2012年7月 ~ 2013年3月 ）</h2><h3 id="AiClass研讨管理系统安卓客户端"><a href="#AiClass研讨管理系统安卓客户端" class="headerlink" title="AiClass研讨管理系统安卓客户端"></a>AiClass研讨管理系统安卓客户端</h3><ul>
+<li>技术栈：Android</li>
+<li>项目描述：AiClass研讨管理系统，用于部分企业和政府部门的研讨管理系统，主要用于辅助会议和学习中的讨论功能。</li>
+<li>责任描述：主要负责进行安卓客户端版本的界面和接口设计以及分组讨论和投票模块的开发，经历两个月的开发，顺利完成三轮测试并实现交付；项目得到领导好评，当年因参与此项目得到公司优秀员工奖励</li>
+</ul>
+<hr>
+<h2 id="湖南创发科技有限责任公司-（-2008年8月-2012年7月-）"><a href="#湖南创发科技有限责任公司-（-2008年8月-2012年7月-）" class="headerlink" title="湖南创发科技有限责任公司 （ 2008年8月 ~ 2012年7月 ）"></a>湖南创发科技有限责任公司 （ 2008年8月 ~ 2012年7月 ）</h2><h3 id="海外BSS项目订单管理功能模块"><a href="#海外BSS项目订单管理功能模块" class="headerlink" title="海外BSS项目订单管理功能模块"></a>海外BSS项目订单管理功能模块</h3><ul>
+<li>技术栈：DWR+jquery+Spring+ibaits+Oracle+WebService</li>
+<li>项目描述：针对海外项目的综合性需求及其应具备的基本的扩展能力，设计和开发海外项目基线版本的订单管理功能模块，用于支撑全球主流的固网业务和移动业务运营商的主流产品的客户订单管理。</li>
+<li>责任描述：前期负责订单管理组开发任务分配和核心功能设计，后期负责端到端接口联调的设计和开发以及对外接口的设计和开发及相应的管理工作。</li>
+</ul>
+<h3 id="湖南电信CRM2-0"><a href="#湖南电信CRM2-0" class="headerlink" title="湖南电信CRM2.0"></a>湖南电信CRM2.0</h3><ul>
+<li>技术栈：DWR+jquery+Spring+ibaits+Oracle+WebService</li>
+<li>项目描述：湖南电信CRM2.0客户关系管理系统按照中国电信集团CRM2.0架构规范开发，主要作用是为湖南电信的客户关系管理和营业受理提供支撑，是湖南电信营业受理功能域的核心系统之一。项目采用jquery+DWR+Spring+Oracle的软件环境构建，上线目标要求全天支撑超过12000终端的营业前台访问，保存和处理湖南电信2000万用户的资料和业务变更请求。</li>
+<li>责任描述：负责CRM营业受理功能模块的详细设计、数据库设计和编码。最终项目评比在湖南电信CRM2.0项目竞聘评比中拿到88分的超高技术分，位列四个竞标厂家第一位，技术分高出第二名近20分。</li>
+</ul>
+<h3 id="湖南电信CRM1-0"><a href="#湖南电信CRM1-0" class="headerlink" title="湖南电信CRM1.0"></a>湖南电信CRM1.0</h3><ul>
+<li>技术栈：DWR+jquery+Spring+ibaits+Oracle+WebService</li>
+<li>项目描述：湖南电信CRM客户关系管理系统于2007年在湖南电信上线，主要作用是为湖南电信的客户关系管理提供支撑，是湖南电信的核心系统之一，采用DWR+Spring+Oracle的软件环境构建，全天支撑超过8000终端的营业前台访问，保存和处理湖南电信1800万用户的资料和业务变更请求。</li>
+<li>责任描述：负责项目日常需求详细设计、数据库设计、编码和维护，以及项目重大建设需求的方案讨论和制定。因在此项目开发维护工程中认真负责，多次获得公司优秀员工称号，并得到晋升。</li>
+</ul>
+<hr>
+<h2 id="湖南汇友科技有限责任公司-（-2007年1月-2008年7月-）"><a href="#湖南汇友科技有限责任公司-（-2007年1月-2008年7月-）" class="headerlink" title="湖南汇友科技有限责任公司 （ 2007年1月 ~ 2008年7月 ）"></a>湖南汇友科技有限责任公司 （ 2007年1月 ~ 2008年7月 ）</h2><h3 id="CTI管理系统"><a href="#CTI管理系统" class="headerlink" title="CTI管理系统"></a>CTI管理系统</h3><ul>
+<li>技术栈：JDK1.5+Mysql5.0+tomcat5.5+Sql server+VB</li>
+<li>项目描述：负责公司日常外呼营销工作的小型企业CRM系统，利用上海维卡数字技术有限公司提供的Vcard语音板卡及VB SDK进行开发，将语音板卡与公司之前的系统对接，实现工作的一体化，高效管理。 </li>
+<li>责任描述：负责项目需求分析、数据库设计、编码、测试和维护。</li>
+</ul>
+<hr>
+<h1 id="开源项目和作品"><a href="#开源项目和作品" class="headerlink" title="开源项目和作品"></a>开源项目和作品</h1><h2 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h2><ul>
+<li><a href="https://github.com/bpascal/nymeria" target="_blank" rel="noopener">Nymeria</a>：一个安卓开发脚手架，对Activity和fragment做了基本的封装，集成了一些常用工具</li>
+<li><a href="https://github.com/bpascal/hodor" target="_blank" rel="noopener">Hodor</a>：基于springboot+mybatis的java后台开发脚手架工程</li>
+<li><a href="https://github.com/bpascal/tars" target="_blank" rel="noopener">TARS</a>：基于itchat的一个python微信个人号机器人项目，可用于简单的机器人应答开发</li>
+</ul>
+<h2 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h2><ul>
+<li><a href="https://www.zybuluo.com/bpascal/note/702267" target="_blank" rel="noopener">创业公司开发环境配置流程</a></li>
+<li><a href="https://www.zybuluo.com/bpascal/note/859615" target="_blank" rel="noopener">CentOS 7 安装wordpress环境</a></li>
+<li><a href="https://www.zybuluo.com/bpascal/note/703041" target="_blank" rel="noopener">CentOS上安装MySQL</a></li>
+</ul>
+<h2 id="演讲和讲义"><a href="#演讲和讲义" class="headerlink" title="演讲和讲义"></a>演讲和讲义</h2><ul>
+<li><a href="https://www.zybuluo.com/bpascal/note/692596" target="_blank" rel="noopener">当我们谈论儿童编程时，我们谈论什么</a></li>
+</ul>
+<h1 id="技能清单"><a href="#技能清单" class="headerlink" title="技能清单"></a>技能清单</h1><p>以下均为我熟练使用的技能</p>
+<ul>
+<li>Web开发：Java/python/nginx/Linux</li>
+<li>Web框架：Spring/spring boot/mybatis/logback/JFinal/aio</li>
+<li>客户端开发：Android/kotlin/swift</li>
+<li>数据库相关：MySQL/PgSQL/Oracle/SQLite</li>
+<li>版本管理、文档和自动化部署工具：Svn/Git</li>
+<li>云和开放平台：阿里云/微信应用开发/七牛云</li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -527,14 +704,6 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
 
                     
 
