@@ -43,7 +43,7 @@
     
     <title>
         
-            标签: Java | 
+            code | 
         
         撕裂之谷
     </title>
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="撕裂之谷">
-    <meta name="msapplication-starturl" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/tags/Java/">
+    <meta name="msapplication-starturl" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="撕裂之谷">
@@ -230,9 +230,9 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/tags/Java/">
+    <meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: Java | 撕裂之谷">
+    <meta property="og:title" content="code | 撕裂之谷">
     <meta property="og:image" content="/bpascal.github.io/img/favicon.png">
     <meta property="og:description" content="">
     
@@ -244,7 +244,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/tags/Java/index.html" />
+        <link rel="canonical" href="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -284,98 +284,197 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
-    
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/bpascal.github.io/2018/05/19/配置开发环境/">配置开发环境</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/bpascal.github.io/2018/05/19/配置开发环境/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
-            </div>
-            <div>
-                <strong>双例模式</strong>
-                <span>5月 19, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/bpascal.github.io/categories/架构/">架构</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/bpascal.github.io/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/bpascal.github.io/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                code
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>双例模式</strong>
+        <span>5月 19, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACYUlEQVR42u3aUXKDMAwFQO5/6fYAHciThB2Srr8yDQXWnZHVZx8/Xz0OPDw8PDw8PDy8h/GOeFz/1t9vzz6f/W7ylOjd8PDw8LbwXpTay2vOvj17/F3PPZ0UPDw8vI28pGSfXZ/DkqLfezc8PDy8T+FdN8TVpQUPDw/v//CqUUUeRuDh4eE9mZcX7uTBSZPdizkWZi14eHh4MS/fZNr/eev+Hh4eHl7AKx9pig8WTI4RjN4QDw8PbzEvL8TXLXLv+iRoqE4EHh4e3mpesgC8+Od/cOQ0uXMSheDh4eHt5+WFu8pIYtn5JOLh4eG9l5cfDsgn6K5lo9lS4+Hh4d3Kq250TaKHPPbttdd4eHh4e3h5Wc9fpbfdVV1a8PDw8J7Myw9j9VrzXgN9+nM8PDy8xbzeLZJts8kUHMEohxF4eHh4N/EmIUKVVG3We38APDw8vP28yYbWpMQvP1OGh4eHdyuvWpTzRaIXRvS2vvDw8PD28Hrb/L3wojpxvUgCDw8Pbz9vEjHkx7aSZSkPRPDw8PDexes1072QN79zfsQBDw8Pbyev2s5WYcmzqstGoaXGw8PDW8yrtrB5Ix5t/Bfb6/LCgIeHh7eAl0eudwW4RzyiCcLDw8NbzKuOpFGebGLlB7nw8PDw3sXrFeUqaRJ2VBcqPDw8vD28ZDEoxAF5ES+2zqMwAg8PD28Br1eg882wPLaoRhJ4eHh438TLG+7kPtGVeHh4eI/k9cLcvO3uHfPCw8PD28+bHAvolf67lhM8PDy8/bw8AsgXgAm4en88PDy8nbzvG3h4eHh4eHh4eA8Yv9/OZ6Or1AHMAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=code&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/index.html&pic=https://bpascal.github.io/bpascal.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=code&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/index.html&via=双例模式" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=撕裂之谷&title=code&summary=&pics=https://bpascal.github.io/bpascal.github.io/img/favicon.png&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/code/index.html&text=code" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <ul>
+<li><a href="https://github.com/bpascal/nymeria" target="_blank" rel="noopener">Nymeria</a>：一个安卓开发脚手架，对Activity和fragment做了基本的封装，集成了一些常用工具</li>
+<li><a href="https://github.com/bpascal/hodor" target="_blank" rel="noopener">Hodor</a>：基于springboot+mybatis的java后台开发脚手架工程</li>
+<li><a href="https://github.com/bpascal/tars" target="_blank" rel="noopener">TARS</a>：基于itchat的一个python微信个人号机器人项目，可用于简单的机器人应答开发</li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
