@@ -54,7 +54,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="双例模式,运维,基础,Linux,开发,Nginx">
+    <meta name="keywords" content="双例模式,开发,运维,基础,Linux,Nginx">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -235,11 +235,11 @@
     <meta property="og:title" content="通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书 | 撕裂之谷">
     <meta property="og:image" content="/bpascal.github.io/img/favicon.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="运维"> <meta property="og:article:tag" content="基础"> <meta property="og:article:tag" content="Linux"> <meta property="og:article:tag" content="开发"> <meta property="og:article:tag" content="Nginx"> 
+    <meta property="og:article:tag" content="开发"> <meta property="og:article:tag" content="运维"> <meta property="og:article:tag" content="基础"> <meta property="og:article:tag" content="Linux"> <meta property="og:article:tag" content="Nginx"> 
 
     
         <meta property="article:published_time" content="Tue May 29 2018 08:48:51 GMT+0800">
-        <meta property="article:modified_time" content="Tue May 29 2018 12:05:24 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jun 12 2018 14:45:09 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +262,7 @@
     "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2018/05/29/init-freessl-certbot-https/index.html",
     "headline": "通过免费SSL证书服务Let's Encrypt和certbot给自己的域名添加https证书",
     "datePublished": "Tue May 29 2018 08:48:51 GMT+0800",
-    "dateModified": "Tue May 29 2018 12:05:24 GMT+0800",
+    "dateModified": "Tue Jun 12 2018 14:45:09 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "双例模式",
@@ -280,7 +280,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",运维,基础,Linux,开发,Nginx双例模式",
+    "keywords": ",开发,运维,基础,Linux,Nginx双例模式",
     "description": "",
 }
 </script>
@@ -516,7 +516,7 @@
     
         <p>网站通常有安全以及防劫持篡改等需求，基础的一个解决办法就是加上SSL证书，使用https进行访问，但是通常证书都需要付费使用，且费用较高，所以之前未曾有很好的普及。在Let’s Encrypt的免费SSL服务出现之后，很多网站和web服务开始使用Let’s Encrypt的免费服务，比如SSL FOR FREE就提供了这个功能。</p>
 <h2 id="申请SSL-FOR-FREE的服务"><a href="#申请SSL-FOR-FREE的服务" class="headerlink" title="申请SSL FOR FREE的服务"></a>申请SSL FOR FREE的服务</h2><p>通过SSL FOR FREE网站按照步骤操作即可，写得非常详细，操作非常简单，实在英文不好的同学可以参考<a href="http://www.laozuo.org/7742.html" target="_blank" rel="noopener">这里</a></p>
-<p>SSL FOR FREE只能生成cert文件，有时候可能还需要pem文件以支持TLS v1.2(例如微信小程序后台仅支持TLS v1.2的https服务)，可以在<a href="https://www.myssl.cn/tools/merge-pem-cert.html" target="_blank" rel="noopener">这里</a>进行操作</p>
+<p>SSL FOR FREE会生成三个文件，其中有一个是key文件，另外两个证书文件一个包含了中间证书而另外一个未包含，通常都选择包含了中间证书的文件作为最终的证书文件路径(例如微信小程序后台仅支持TLS v1.2的https服务并且要求有中间证书，否则在android设备上将无法访问后台)。另外也可以可以在<a href="https://www.myssl.cn/tools/merge-pem-cert.html" target="_blank" rel="noopener">这里</a>进行添加中间证书的操作。</p>
 <p>这样基本可以满足一些使用，但是有一个问题，就是这样生成的证书每次仅有90天的试用期，90天过后需要重新认证，操作比较麻烦；再后来出现了certbot，可以通过设置来进行90天的自动更新，这样基本可以满足要求较高的个人用户或者中小企业的安全需求。下面就其使用过程进行一下归纳总结。</p>
 <h2 id="安装certbot服务"><a href="#安装certbot服务" class="headerlink" title="安装certbot服务"></a>安装certbot服务</h2><p>首先需要有python2.7环境，通常主流服务器都已经有了python环境，如果有特殊情况需要自己安装的可参考<a href="https://www.cnblogs.com/feng18/p/5854912.html" target="_blank" rel="noopener">这里</a></p>
 <p>安装好python之后，分别执行如下命令:</p>
