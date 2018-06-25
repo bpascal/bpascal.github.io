@@ -239,7 +239,7 @@
 
     
         <meta property="article:published_time" content="Mon Jun 25 2018 10:29:59 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jun 25 2018 10:51:44 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jun 25 2018 11:02:02 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +262,7 @@
     "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2018/06/25/base-devops-shells/index.html",
     "headline": "简单基础的linux运维脚本",
     "datePublished": "Mon Jun 25 2018 10:29:59 GMT+0800",
-    "dateModified": "Mon Jun 25 2018 10:51:44 GMT+0800",
+    "dateModified": "Mon Jun 25 2018 11:02:02 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "双例模式",
@@ -346,7 +346,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务定时重启"><span class="post-toc-number">1.</span> <span class="post-toc-text">服务定时重启</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务定时重启"><span class="post-toc-number">1.</span> <span class="post-toc-text">服务定时重启</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#日志定时切分"><span class="post-toc-number">2.</span> <span class="post-toc-text">日志定时切分</span></a></li></ol>
     </ul>
     
 
@@ -548,6 +548,29 @@ sh startup.sh
 <p>crontab的日志通常在如下位置可以查看:</p>
 <pre><code class="bash">/var/log/cron
 </code></pre>
+<h2 id="日志定时切分"><a href="#日志定时切分" class="headerlink" title="日志定时切分"></a>日志定时切分</h2><p>我们以tomcat的catalina.out日志为例来说明日志切分的脚本</p>
+<p>脚本大致内容如下:</p>
+<pre><code class="bash">#!/bin/bash
+server_log_path=/home/serveradm/Tomcat/logs
+server_dist_log_path=/home/serveradm/Tomcat/logs/backups
+d=`date +%Y-%m-%d`
+d50=`date -d&#39;50 day ago&#39; +%Y-%m-%d`
+cd ${server_log_path} &amp;&amp; cp catalina.out ${server_dist_log_path}/catalina.out.$d.log
+echo &gt; catalina.out
+rm -rf ${server_dist_log_path}/catalina.out.${d50}.log #删除50天以前的日志
+</code></pre>
+<p>注意：脚本中的目录都需要正确，尤其是目标目录，需要提前新建并且有写入权限</p>
+<p>脚本编辑完成保存后，还需要给脚本赋予执行权限</p>
+<pre><code class="bash"># chmod 755 tomcat_restart.sh
+</code></pre>
+<p>最后通过crontab设定服务器定时任务，定时执行脚本，日志我们设定为每日23:59分进行切分，设定方式如下:</p>
+<pre><code class="bash"># crontab -e
+</code></pre>
+<p>进入定时任务编辑器</p>
+<p>使用vi编辑的方式，在文件最后添加如下内容:</p>
+<pre><code class="bash">59 23 * * * sh /home/serveradm/shells/tomcat_logcut.sh
+</code></pre>
+<p>然后保存退出，即可成功设定</p>
 
         
     
