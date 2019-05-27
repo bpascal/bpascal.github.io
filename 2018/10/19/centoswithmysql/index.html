@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>CentOS上安装MySQL | 撕裂之谷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="参考:http://www.centoscn.com/mysql/2016/0315/6844.html 0. 检查MySQL是否已经安装使用如下命令判断是否已经安装 yum list installed | grep mysql  如果有，就先全部卸载，命令如下： yum -y remove mysql-libs.x86_64  1. 依赖包安装MySQL 依赖 libaio，所以先要安装 li">
+<meta name="keywords" content="运维,基础,Linux,MySQL,CentOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS上安装MySQL">
+<meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/2018/10/19/centoswithmysql/index.html">
+<meta property="og:site_name" content="撕裂之谷">
+<meta property="og:description" content="参考:http://www.centoscn.com/mysql/2016/0315/6844.html 0. 检查MySQL是否已经安装使用如下命令判断是否已经安装 yum list installed | grep mysql  如果有，就先全部卸载，命令如下： yum -y remove mysql-libs.x86_64  1. 依赖包安装MySQL 依赖 libaio，所以先要安装 li">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-19T14:39:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS上安装MySQL">
+<meta name="twitter:description" content="参考:http://www.centoscn.com/mysql/2016/0315/6844.html 0. 检查MySQL是否已经安装使用如下命令判断是否已经安装 yum list installed | grep mysql  如果有，就先全部卸载，命令如下： yum -y remove mysql-libs.x86_64  1. 依赖包安装MySQL 依赖 libaio，所以先要安装 li">
+  
+    <link rel="alternate" href="/bpascal.github.io/atom.xml" title="撕裂之谷" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/bpascal.github.io/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/bpascal.github.io/" id="logo">撕裂之谷</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/bpascal.github.io/" id="subtitle">Rivendell</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/bpascal.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bpascal.github.io/bpascal.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-centoswithmysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/bpascal.github.io/2018/10/19/centoswithmysql/" class="article-date">
+  <time datetime="2018-10-19T14:38:35.000Z" itemprop="datePublished">2018-10-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOS上安装MySQL
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考:<a href="http://www.centoscn.com/mysql/2016/0315/6844.html" target="_blank" rel="noopener">http://www.centoscn.com/mysql/2016/0315/6844.html</a></p>
+<h3 id="0-检查MySQL是否已经安装"><a href="#0-检查MySQL是否已经安装" class="headerlink" title="0. 检查MySQL是否已经安装"></a>0. 检查MySQL是否已经安装</h3><p>使用如下命令判断是否已经安装</p>
+<pre><code class="bash">yum list installed | grep mysql
+</code></pre>
+<p>如果有，就先全部卸载，命令如下：</p>
+<pre><code class="bash">yum -y remove mysql-libs.x86_64
+</code></pre>
+<h3 id="1-依赖包安装"><a href="#1-依赖包安装" class="headerlink" title="1. 依赖包安装"></a>1. 依赖包安装</h3><p>MySQL 依赖 libaio，所以先要安装 libaio</p>
+<pre><code class="shell">yum search libaio  # 检索相关信息
+yum install libaio # 安装依赖包
+</code></pre>
+<h3 id="2-下载MySQL-Yum-Repository"><a href="#2-下载MySQL-Yum-Repository" class="headerlink" title="2.下载MySQL Yum Repository"></a>2.下载MySQL Yum Repository</h3><p>地址为 <a href="http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm" target="_blank" rel="noopener">http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</a></p>
+<pre><code class="shell">wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+</code></pre>
+<ul>
+<li>如果提示-bash: wget: 未找到命令，请先执行 yum install wget 安装 wget</li>
+</ul>
+<h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h3><p>使用yum 和刚刚下载的rpm源安装</p>
+<pre><code class="bash">rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+yum install mysql-community-server
+</code></pre>
+<h3 id="4-运行"><a href="#4-运行" class="headerlink" title="4.运行"></a>4.运行</h3><ul>
+<li>安装完成后启动mysql服务<pre><code class="bash">service mysqld start
+systemctl start mysqld
+</code></pre>
+</li>
+<li><p>查看 MySQL Server 状态</p>
+<pre><code class="bash">service mysqld status
+systemctl status mysqld
+</code></pre>
+</li>
+<li><p>关闭 MySQL Server</p>
+<pre><code class="bash">service mysqld stop
+systemctl stop mysqld
+</code></pre>
+</li>
+<li>重启MySQL Server<pre><code class="bash">service mysqld restart
+</code></pre>
+</li>
+</ul>
+<h3 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h3><h5 id="5-1-安全性配置"><a href="#5-1-安全性配置" class="headerlink" title="5.1 安全性配置"></a>5.1 安全性配置</h5><ul>
+<li><p>有些版本的MySQL(5.6及以下版本)默认没有root密码，可以通过如下方式设置root用户密码</p>
+<pre><code class="bash">mysql -uroot
+mysql&gt; set password for &#39;root&#39;@&#39;localhost&#39; = password(&#39;CvcO7pQL&#39;);
+mysql&gt; exit
+</code></pre>
+</li>
+<li><p>有些版本默认会生成一个密码，密码的查找方式如下:<br>(参考:<a href="http://blog.csdn.net/kindroid/article/details/51018107" target="_blank" rel="noopener">http://blog.csdn.net/kindroid/article/details/51018107</a>)</p>
+</li>
+<li><p>在低于Mysql 5.7.6的版本上</p>
+</li>
+</ul>
+<blockquote>
+<p>Mysql是使用mysql_install_db命令初始化数据库的，该命令会在安装Mysql的用户根目录下创建一个.mysql_secret文件，该文件记录了初始化生成的随机密码，用户可使用改密码登录Mysql并重新修改密码。</p>
+</blockquote>
+<ul>
+<li>对于Mysql 5.7.6以后的5.7系列版本</li>
+</ul>
+<blockquote>
+<p>Mysql使用mysqld –initialize或mysqld –initialize-insecure命令来初始化数据库，后者可以不生成随机密码。但是安装Mysql时默认使用的是前一个命令，这个命令也会生成一个随机密码。改密码保存在了Mysql的日志文件中。</p>
+</blockquote>
+<blockquote>
+<p>在Centos 7系统上使用rpm命令安装Mysql后，mysql的配置文件是/etc/my.cnf，打开该文件，可以看到mysql的datadir和log文件等的配置信息，如下：</p>
+</blockquote>
+<blockquote>
+<p>datadir=/var/lib/mysql<br>log-error=/var/log/mysqld.log</p>
+</blockquote>
+<blockquote>
+<p>打开/var/log/mysqld.log文件，搜索字符串A temporary password is generated for root@localhost:，可以找到这个随机密码，通常这一行日志在log文件的最初几行，比较容易看到。</p>
+</blockquote>
+<ul>
+<li><p>做默认的安全设置:</p>
+<pre><code class="bash">mysql_secure_installation
+</code></pre>
+<p>在此过程中会需要输入前面找到的root用户密码，完成后所有安装流程全部完成</p>
+</li>
+<li><p>远程访问设置<br>创建一个普通用户 sa ，密码是 password</p>
+<pre><code class="bash">set global validate_password_policy=0; #MySQL 5.7版本以上可能对密码安全性有要求，故可以降低安全级
+CREATE USER &#39;sa&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;
+</code></pre>
+<p>给这个用户授予 SELECT,INSERT,UPDATE,DELETE 的远程访问的权限，这个账号一般用于提供给实施的系统访问</p>
+<pre><code class="bash">GRANT SELECT,INSERT,UPDATE,DELETE  ON *.* TO &#39;sa&#39;@&#39;%&#39;;
+</code></pre>
+<p>创建一个管理员用户 jbadm 账号 ，密码是 password</p>
+<pre><code class="bash">CREATE USER &#39;jbadm&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;
+</code></pre>
+<p>给这个用户授予所有的远程访问的权限。这个用户主要用于管理整个数据库、备份、还原等操作。</p>
+<pre><code class="bash">GRANT ALL  ON *.* TO &#39;jbadm&#39;@&#39;%&#39;;
+</code></pre>
+<p>使授权立刻生效</p>
+<pre><code class="bash">flush privileges;
+</code></pre>
+<h5 id="5-2-数据文件存放配置"><a href="#5-2-数据文件存放配置" class="headerlink" title="5.2 数据文件存放配置"></a>5.2 数据文件存放配置</h5></li>
+<li>创建数据存放目录<pre><code class="bash">mkdir /home/data
+</code></pre>
+</li>
+<li>移动数据到数据存放目录<br>停止服务<pre><code class="bash">mysqladmin -u root -p shutdown #停止服务
+</code></pre>
+移动目录<pre><code class="bash">mv /var/lib/mysql /home/data
+</code></pre>
+修改 /etc/my.cnf 文件<br>修改<br>datadir=/home/data/mysql<br>socket=/home/data/mysql/mysql.sock<br>必要情况下可能还需要区分服务端和客户端的参数<br>[mysqld]/[client]/[mysql]<pre><code class="bash">vi /etc/my.cnf
+</code></pre>
+修改权限<pre><code class="bash">chown -R mysql:mysql /home/data/mysql
+</code></pre>
+</li>
+<li>重启数据库服务<br>重启后，如果不能启动 MySQL 服务，执行<pre><code class="bash">vi  /etc/sysconfig/selinux
+#调整参数
+SELINUX=permissive
+</code></pre>
+保存设置，执行 reboot 重启生效</li>
+</ul>
+<h5 id="5-3-设置字符集"><a href="#5-3-设置字符集" class="headerlink" title="5.3 设置字符集"></a>5.3 设置字符集</h5><p>一般的，为了支持中文，我们应该讲字符集设为 UTF-8， 执行</p>
+<pre><code class="shell">SHOW VARIABLES LIKE &#39;character%&#39;;
+</code></pre>
+<p>查看当前 MySQL 字符集<br>character_set_server为默认的字符集<br>修改 /etc/my.cnf 文件，添加字符集的设置</p>
+<pre><code class="shell">[mysqld]   
+character_set_server = utf8
+
+[mysql]
+default-character-set = utf8
+</code></pre>
+<h5 id="5-4-打开防火墙"><a href="#5-4-打开防火墙" class="headerlink" title="5.4 打开防火墙"></a>5.4 打开防火墙</h5><h5 id="5-5-自动启动配置"><a href="#5-5-自动启动配置" class="headerlink" title="5.5 自动启动配置"></a>5.5 自动启动配置</h5><p>检查是否开机自启</p>
+<pre><code class="bash">systemctl is-enabled mysqld.service;echo $?
+</code></pre>
+<p>如果是 enabled 则说明是开机自动<br>设置开机自启</p>
+<pre><code class="bash">chkconfig --levels 235 mysqld on
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/10/19/centoswithmysql/" data-id="cjw65wmr600025fzk9el0qzka" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">安装nginx并且支持rewrite和ssl</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/架构/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/闲话/">闲话</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/个人/">个人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/bpascal.github.io/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/bpascal.github.io/tags/Java/" style="font-size: 10px;">Java</a> <a href="/bpascal.github.io/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/bpascal.github.io/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/bpascal.github.io/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/bpascal.github.io/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/bpascal.github.io/tags/个人/" style="font-size: 10px;">个人</a> <a href="/bpascal.github.io/tags/基础/" style="font-size: 20px;">基础</a> <a href="/bpascal.github.io/tags/开发/" style="font-size: 15px;">开发</a> <a href="/bpascal.github.io/tags/运维/" style="font-size: 20px;">运维</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/10/19/centoswithmysql/">CentOS上安装MySQL</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/">安装nginx并且支持rewrite和ssl</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/25/base-devops-shells/">简单基础的linux运维脚本</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/">Linux(CentOS)服务器用户的一些常用管理方法</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/">通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 双例模式<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/bpascal.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/bpascal.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/bpascal.github.io/fancybox/jquery.fancybox.css">
+  <script src="/bpascal.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/bpascal.github.io/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
