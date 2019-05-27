@@ -1,945 +1,1334 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
 
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+        撕裂之谷
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/bpascal.github.io/img/favicon.png">
+    <link rel="icon" href="/bpascal.github.io/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="双例模式">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/bpascal.github.io/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/bpascal.github.io/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
   
-  <title>撕裂之谷</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="撕裂之谷">
-<meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/index.html">
-<meta property="og:site_name" content="撕裂之谷">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="撕裂之谷">
-  
-    <link rel="alternate" href="/bpascal.github.io/atom.xml" title="撕裂之谷" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-  <link rel="stylesheet" href="/bpascal.github.io/css/style.css">
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/bpascal.github.io/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/bpascal.github.io/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="撕裂之谷">
+    <meta name="msapplication-starturl" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="撕裂之谷">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/bpascal.github.io/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="撕裂之谷">
+    <meta property="og:image" content="/bpascal.github.io/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://bpascal.github.io/bpascal.github.io" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "撕裂之谷",
+        "logo": "/img/favicon.png"
+    },
+    "url": "https://bpascal.github.io/bpascal.github.io",
+    "image": {
+        "@type": "ImageObject",
+        "url": "/img/favicon.png"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bpascal.github.io/bpascal.github.io"
+    },
+    "description": ""
+}
+</script>
+
+
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/bpascal.github.io/" id="logo">撕裂之谷</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/bpascal.github.io/" id="subtitle">Rivendell</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/bpascal.github.io/">Home</a>
-        
-          <a class="main-nav-link" href="/bpascal.github.io/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/bpascal.github.io/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bpascal.github.io/bpascal.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-centoswithmysql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bpascal.github.io/2018/10/19/centoswithmysql/" class="article-date">
-  <time datetime="2018-10-19T14:38:35.000Z" itemprop="datePublished">2018-10-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bpascal.github.io/2018/10/19/centoswithmysql/">CentOS上安装MySQL</a>
-    </h1>
-  
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
 
-      </header>
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考:<a href="http://www.centoscn.com/mysql/2016/0315/6844.html" target="_blank" rel="noopener">http://www.centoscn.com/mysql/2016/0315/6844.html</a></p>
-<h3 id="0-检查MySQL是否已经安装"><a href="#0-检查MySQL是否已经安装" class="headerlink" title="0. 检查MySQL是否已经安装"></a>0. 检查MySQL是否已经安装</h3><p>使用如下命令判断是否已经安装</p>
-<pre><code class="bash">yum list installed | grep mysql
-</code></pre>
-<p>如果有，就先全部卸载，命令如下：</p>
-<pre><code class="bash">yum -y remove mysql-libs.x86_64
-</code></pre>
-<h3 id="1-依赖包安装"><a href="#1-依赖包安装" class="headerlink" title="1. 依赖包安装"></a>1. 依赖包安装</h3><p>MySQL 依赖 libaio，所以先要安装 libaio</p>
-<pre><code class="shell">yum search libaio  # 检索相关信息
-yum install libaio # 安装依赖包
-</code></pre>
-<h3 id="2-下载MySQL-Yum-Repository"><a href="#2-下载MySQL-Yum-Repository" class="headerlink" title="2.下载MySQL Yum Repository"></a>2.下载MySQL Yum Repository</h3><p>地址为 <a href="http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm" target="_blank" rel="noopener">http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</a></p>
-<pre><code class="shell">wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
-</code></pre>
-<ul>
-<li>如果提示-bash: wget: 未找到命令，请先执行 yum install wget 安装 wget</li>
+        <!-- Paradox Header -->
+        <!-- Daily pic -->
+<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
+
+    <!-- Pic & Slogan -->
+    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/bpascal.github.io/img/daily_pic.png)">
+        <p class="index-top-block-slogan"><a href="#">
+        
+            
+                <span style="font-size:36px">撕裂之谷</span><br><span style="font-size:16px">永远相信</span><br><span style="font-size:16px">美好的事情即将发生</span>
+            
+        
+        </a></p>
+    </div>
+
+    <!-- Avatar & Name -->
+    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <!-- Author Avatar -->
+        <div id="author-avatar">
+            <img src="/bpascal.github.io/img/logopic.jpg" width="32px" height="32px" alt="avatar">
+        </div>
+        <div>
+            <strong>双例模式</strong>
+        </div>
+    </div>
+</div>
+
+        <!-- Blog info -->
+<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
+
+    <!-- Search -->
+    
+    <!-- Google -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
+        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
+            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
+        </label>
+
+        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
+            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
+            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
+
+            <input type="hidden" name="sitesearch" value="https://bpascal.github.io/bpascal.github.io">
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <!-- LOGO -->
+    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
+        <a href="#" target="_blank">
+            <img src="/bpascal.github.io/img/logo.png" alt="logo" />
+        </a>
+    </div>
+
+    <!-- Infomation -->
+    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+        <!-- Blog Title -->
+        <div>
+            <strong>撕裂之谷</strong>
+        </div>
+        <div class="section-spacer"></div>
+
+        <!-- Pages -->
+        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">view_carousel</i>
+            <span class="visuallyhidden">Pages</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
+            
+                <a class="index_share-link" href="/code" title="代码">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        代码
+                    </li>
+                </a>
+            
+                <a class="index_share-link" href="/about" title="关于我">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        关于我
+                    </li>
+                </a>
+            
+        </ul>
+
+        <!-- Menu -->
+        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">more_vert</i>
+            <span class="visuallyhidden">show menu</span>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
+            
+
+            
+
+            
+                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=撕裂之谷&url=https://bpascal.github.io/bpascal.github.io&pic=https://bpascal.github.io/bpascal.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到微博
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=撕裂之谷&url=https://bpascal.github.io/bpascal.github.io&via=双例模式" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到 Twitter
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://bpascal.github.io/bpascal.github.io" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到 Facebook
+                    </li>
+                </a>
+            
+
+            
+                <a class="index_share-link" href="https://plus.google.com/share?url=https://bpascal.github.io/bpascal.github.io" target="_blank">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        分享到 Google+
+                    </li>
+                </a>
+            
+
+            
+
+            
+                <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=撕裂之谷&title=撕裂之谷&summary=&pics=https://bpascal.github.io/bpascal.github.io/img/favicon.png&url=https://bpascal.github.io/bpascal.github.io" target="_blank">
+                    <li class="mdl-menu__item">
+                        分享到 QQ
+                    </li>
+                </a>
+            
+
+            
+                <a class="post_share-link" href="https://telegram.me/share/url?url=https://bpascal.github.io/bpascal.github.io&text=撕裂之谷" target="_blank">
+                    <li class="mdl-menu__item">
+                        分享到 Telegram
+                    </li>
+                </a>
+            
+        </ul>
+    </div>
+</div>
+
+    
+    <div class="locate-thumbnail-symbol"></div>
+
+    <!-- Pin on top -->
+    
+
+    <!-- Normal Post -->
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/bpascal.github.io/2018/10/19/centoswithmysql/">CentOS上安装MySQL</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            参考:
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/bpascal.github.io/2018/10/19/centoswithmysql/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
+            </div>
+            <div>
+                <strong>双例模式</strong>
+                <span>10月 19, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/">安装nginx并且支持rewrite和ssl</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            nginx现在基本是环境上的必需品，要求ssl的场景也是越来越多，这里把安装过程记录一下
+
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
+            </div>
+            <div>
+                <strong>双例模式</strong>
+                <span>8月 10, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/bpascal.github.io/2018/06/25/base-devops-shells/">简单基础的linux运维脚本</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            服务在部署运行中，需要运维工作来提供服务保障和支持，运维工作主要包括系统性能监控、服务的启停发布以及日志和数据的清理备份等，有复杂有简单，现就最为基...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/bpascal.github.io/2018/06/25/base-devops-shells/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
+            </div>
+            <div>
+                <strong>双例模式</strong>
+                <span>6月 25, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/">Linux(CentOS)服务器用户的一些常用管理方法</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            罗列一些常用的用户、用户组、权限等操作方法，方便理解和使用linux的权限
+
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
+            </div>
+            <div>
+                <strong>双例模式</strong>
+                <span>6月 08, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/">通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            网站通常有安全以及防劫持篡改等需求，基础的一个解决办法就是加上SSL证书，使用https进行访问，但是通常证书都需要付费使用，且费用较高，所以之前未...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
+            </div>
+            <div>
+                <strong>双例模式</strong>
+                <span>5月 29, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/bpascal.github.io/2018/05/19/配置开发环境/">配置开发环境</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            在开始进入研发工作之前，先要部署一套开发环境
+
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/bpascal.github.io/2018/05/19/配置开发环境/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
+            </div>
+            <div>
+                <strong>双例模式</strong>
+                <span>5月 19, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/bpascal.github.io/categories/架构/">架构</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+        
+    
+
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/bpascal.github.io/2018/05/18/hello-world/">hello，撕裂之谷</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            世界上只有0.0001%的人来到过撕裂之谷，对于你和我来说我们都是幸运的
+
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/bpascal.github.io/2018/05/18/hello-world/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/bpascal.github.io/img/logopic.jpg" width="44px" height="44px" alt="双例模式's avatar">
+            </div>
+            <div>
+                <strong>双例模式</strong>
+                <span>5月 18, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/bpascal.github.io/categories/闲话/">闲话</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/bpascal.github.io/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
+</script>
+
+    
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/bpascal.github.io/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/bpascal.github.io/img/logopic.jpg" alt="双例模式's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        bpascal.cn@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/bpascal.github.io/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/bpascal.github.io/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/bpascal.github.io/archives/2018/08/">八月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/bpascal.github.io/archives/2018/06/">六月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/bpascal.github.io/archives/2018/05/">五月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/bpascal.github.io/categories/基础/">基础<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/bpascal.github.io/categories/架构/">架构<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/bpascal.github.io/categories/闲话/">闲话<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/code" title="代码">
+                
+                    <i class="material-icons sidebar-material-icons">code</i>
+                
+                代码
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
 </ul>
-<h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h3><p>使用yum 和刚刚下载的rpm源安装</p>
-<pre><code class="bash">rpm -ivh mysql57-community-release-el7-9.noarch.rpm
-yum install mysql-community-server
-</code></pre>
-<h3 id="4-运行"><a href="#4-运行" class="headerlink" title="4.运行"></a>4.运行</h3><ul>
-<li>安装完成后启动mysql服务<pre><code class="bash">service mysqld start
-systemctl start mysqld
-</code></pre>
-</li>
-<li><p>查看 MySQL Server 状态</p>
-<pre><code class="bash">service mysqld status
-systemctl status mysqld
-</code></pre>
-</li>
-<li><p>关闭 MySQL Server</p>
-<pre><code class="bash">service mysqld stop
-systemctl stop mysqld
-</code></pre>
-</li>
-<li>重启MySQL Server<pre><code class="bash">service mysqld restart
-</code></pre>
-</li>
-</ul>
-<h3 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h3><h5 id="5-1-安全性配置"><a href="#5-1-安全性配置" class="headerlink" title="5.1 安全性配置"></a>5.1 安全性配置</h5><ul>
-<li><p>有些版本的MySQL(5.6及以下版本)默认没有root密码，可以通过如下方式设置root用户密码</p>
-<pre><code class="bash">mysql -uroot
-mysql&gt; set password for &#39;root&#39;@&#39;localhost&#39; = password(&#39;CvcO7pQL&#39;);
-mysql&gt; exit
-</code></pre>
-</li>
-<li><p>有些版本默认会生成一个密码，密码的查找方式如下:<br>(参考:<a href="http://blog.csdn.net/kindroid/article/details/51018107" target="_blank" rel="noopener">http://blog.csdn.net/kindroid/article/details/51018107</a>)</p>
-</li>
-<li><p>在低于Mysql 5.7.6的版本上</p>
-</li>
-</ul>
-<blockquote>
-<p>Mysql是使用mysql_install_db命令初始化数据库的，该命令会在安装Mysql的用户根目录下创建一个.mysql_secret文件，该文件记录了初始化生成的随机密码，用户可使用改密码登录Mysql并重新修改密码。</p>
-</blockquote>
-<ul>
-<li>对于Mysql 5.7.6以后的5.7系列版本</li>
-</ul>
-<blockquote>
-<p>Mysql使用mysqld –initialize或mysqld –initialize-insecure命令来初始化数据库，后者可以不生成随机密码。但是安装Mysql时默认使用的是前一个命令，这个命令也会生成一个随机密码。改密码保存在了Mysql的日志文件中。</p>
-</blockquote>
-<blockquote>
-<p>在Centos 7系统上使用rpm命令安装Mysql后，mysql的配置文件是/etc/my.cnf，打开该文件，可以看到mysql的datadir和log文件等的配置信息，如下：</p>
-</blockquote>
-<blockquote>
-<p>datadir=/var/lib/mysql<br>log-error=/var/log/mysqld.log</p>
-</blockquote>
-<blockquote>
-<p>打开/var/log/mysqld.log文件，搜索字符串A temporary password is generated for root@localhost:，可以找到这个随机密码，通常这一行日志在log文件的最初几行，比较容易看到。</p>
-</blockquote>
-<ul>
-<li><p>做默认的安全设置:</p>
-<pre><code class="bash">mysql_secure_installation
-</code></pre>
-<p>在此过程中会需要输入前面找到的root用户密码，完成后所有安装流程全部完成</p>
-</li>
-<li><p>远程访问设置<br>创建一个普通用户 sa ，密码是 password</p>
-<pre><code class="bash">set global validate_password_policy=0; #MySQL 5.7版本以上可能对密码安全性有要求，故可以降低安全级
-CREATE USER &#39;sa&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;
-</code></pre>
-<p>给这个用户授予 SELECT,INSERT,UPDATE,DELETE 的远程访问的权限，这个账号一般用于提供给实施的系统访问</p>
-<pre><code class="bash">GRANT SELECT,INSERT,UPDATE,DELETE  ON *.* TO &#39;sa&#39;@&#39;%&#39;;
-</code></pre>
-<p>创建一个管理员用户 jbadm 账号 ，密码是 password</p>
-<pre><code class="bash">CREATE USER &#39;jbadm&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;
-</code></pre>
-<p>给这个用户授予所有的远程访问的权限。这个用户主要用于管理整个数据库、备份、还原等操作。</p>
-<pre><code class="bash">GRANT ALL  ON *.* TO &#39;jbadm&#39;@&#39;%&#39;;
-</code></pre>
-<p>使授权立刻生效</p>
-<pre><code class="bash">flush privileges;
-</code></pre>
-<h5 id="5-2-数据文件存放配置"><a href="#5-2-数据文件存放配置" class="headerlink" title="5.2 数据文件存放配置"></a>5.2 数据文件存放配置</h5></li>
-<li>创建数据存放目录<pre><code class="bash">mkdir /home/data
-</code></pre>
-</li>
-<li>移动数据到数据存放目录<br>停止服务<pre><code class="bash">mysqladmin -u root -p shutdown #停止服务
-</code></pre>
-移动目录<pre><code class="bash">mv /var/lib/mysql /home/data
-</code></pre>
-修改 /etc/my.cnf 文件<br>修改<br>datadir=/home/data/mysql<br>socket=/home/data/mysql/mysql.sock<br>必要情况下可能还需要区分服务端和客户端的参数<br>[mysqld]/[client]/[mysql]<pre><code class="bash">vi /etc/my.cnf
-</code></pre>
-修改权限<pre><code class="bash">chown -R mysql:mysql /home/data/mysql
-</code></pre>
-</li>
-<li>重启数据库服务<br>重启后，如果不能启动 MySQL 服务，执行<pre><code class="bash">vi  /etc/sysconfig/selinux
-#调整参数
-SELINUX=permissive
-</code></pre>
-保存设置，执行 reboot 重启生效</li>
-</ul>
-<h5 id="5-3-设置字符集"><a href="#5-3-设置字符集" class="headerlink" title="5.3 设置字符集"></a>5.3 设置字符集</h5><p>一般的，为了支持中文，我们应该讲字符集设为 UTF-8， 执行</p>
-<pre><code class="shell">SHOW VARIABLES LIKE &#39;character%&#39;;
-</code></pre>
-<p>查看当前 MySQL 字符集<br>character_set_server为默认的字符集<br>修改 /etc/my.cnf 文件，添加字符集的设置</p>
-<pre><code class="shell">[mysqld]   
-character_set_server = utf8
 
-[mysql]
-default-character-set = utf8
-</code></pre>
-<h5 id="5-4-打开防火墙"><a href="#5-4-打开防火墙" class="headerlink" title="5.4 打开防火墙"></a>5.4 打开防火墙</h5><h5 id="5-5-自动启动配置"><a href="#5-5-自动启动配置" class="headerlink" title="5.5 自动启动配置"></a>5.5 自动启动配置</h5><p>检查是否开机自启</p>
-<pre><code class="bash">systemctl is-enabled mysqld.service;echo $?
-</code></pre>
-<p>如果是 enabled 则说明是开机自动<br>设置开机自启</p>
-<pre><code class="bash">chkconfig --levels 235 mysqld on
-</code></pre>
 
-      
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
     </div>
-    <footer class="article-footer">
-      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/10/19/centoswithmysql/" data-id="cjw664s33000ccdzk8vdlxupi" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-install-nginx-with-ssl" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/" class="article-date">
-  <time datetime="2018-08-10T01:16:18.000Z" itemprop="datePublished">2018-08-10</time>
-</a>
+    <!-- Sidebar Image -->
     
-  <div class="article-category">
-    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/">安装nginx并且支持rewrite和ssl</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>nginx现在基本是环境上的必需品，要求ssl的场景也是越来越多，这里把安装过程记录一下</p>
-<h2 id="安装基础环境支持"><a href="#安装基础环境支持" class="headerlink" title="安装基础环境支持"></a>安装基础环境支持</h2><p>rewrite功能安装，直接走nginx强制重定向需要此功能支持</p>
-<pre><code class="bash"># yum install pcre*
-</code></pre>
-<p>ssl功能安装，需要支持https访问的情况下需要此功能支持</p>
-<pre><code class="bash"># yum install openssl* 
-</code></pre>
-<p>gzip 类库安装，需要在nginx支持压缩和解压功能的需要此功能支持</p>
-<pre><code class="bash"># yum install zlib zlib-devel
-</code></pre>
-<h2 id="下载及解压"><a href="#下载及解压" class="headerlink" title="下载及解压"></a>下载及解压</h2><p><a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
-<pre><code class="bash"># wget http://nginx.org/download/nginx-1.16.0.tar.gz
-</code></pre>
-<p>解压</p>
-<pre><code class="bash"># tar -zxvf nginx-1.16.0.tar.gz
-</code></pre>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>进入nginx的解压目录</p>
-<pre><code class="bash"># cd nginx-1.16.0.tar.gz
-</code></pre>
-<p>设置编译参数，这里是个关键，需要配置ssl</p>
-<pre><code class="bash"># ./configure --prefix=/usr/local/nginx --with-http_ssl_module --user=nginx --group=nginx --with-pcre
-</code></pre>
-<p>然后make 并 make install</p>
-<pre><code class="bash"># make
-# make install 
-</code></pre>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>安装完成后验证nginx是否安装正确</p>
-<pre><code class="bash">/usr/local/nginx/sbin/nginx -V
-</code></pre>
-<p>如果输出类似一下的正常的版本号及配置信息，则说明安装正确</p>
-<pre><code class="bash">nginx version: nginx/1.14.0
-built by gcc 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC)
-built with OpenSSL 1.0.2k-fips  26 Jan 2017
-TLS SNI support enabled
-configure arguments: --prefix=/usr/local/nginx --with-http_ssl_module --user=nginx --group=nginx --with-pcre
-</code></pre>
-<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><pre><code class="bash"># /usr/local/nginx/sbin/nginx   启动
-# /usr/local/nginx/sbin/nginx -s stop  停止
-# /usr/local/nginx/sbin/nginx -s reload  重新载入
-# /usr/local/nginx/sbin/nginx -v  查看版本
-# /usr/local/nginx/sbin/nginx -t  测试配置文件是否正常
-# pkill nginx  强制关闭
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/08/10/install-nginx-with-ssl/" data-id="cjw664s3e000ocdzk1qjhy2qu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-base-devops-shells" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bpascal.github.io/2018/06/25/base-devops-shells/" class="article-date">
-  <time datetime="2018-06-25T02:29:59.000Z" itemprop="datePublished">2018-06-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bpascal.github.io/2018/06/25/base-devops-shells/">简单基础的linux运维脚本</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>服务在部署运行中，需要运维工作来提供服务保障和支持，运维工作主要包括系统性能监控、服务的启停发布以及日志和数据的清理备份等，有复杂有简单，现就最为基础简单的一些脚本进行整理和归纳</p>
-<h2 id="服务定时重启"><a href="#服务定时重启" class="headerlink" title="服务定时重启"></a>服务定时重启</h2><p>tomcat服务重启脚本大致如下</p>
-<pre><code class="bash">#!/bin/bash
-jbserver_ui_bin_path=/home/serveradm/Tomcat/bin # 设定tomcat服务的目录
-cd ${jbserver_ui_bin_path}
-sh shutdown.sh
-echo -n &quot;Wait 5 seconds &quot;
-seconds=1
-while [ $seconds -le 5 ]
-  do
-    echo -n &quot;.&quot;
-    sleep 1
-    seconds=`expr $seconds + 1`
-done
-echo &quot;Start Tomcat Server ...&quot;
-sh startup.sh
-</code></pre>
-<p>如有需要，还可以设定一些启动参数后再执行startup.sh，例如</p>
-<pre><code class="bash">export JAVA_OPTS=&quot; -XX:PermSize=256m -XX:MaxPermSize=512 -Xms512m -Xmx512m -Xloggc:gc.log  -Dprofile=prod -Djava.security.egd=file:/dev/./urandom&quot;
-</code></pre>
-<p>脚本编辑完成后，还需要给脚本赋予执行权限</p>
-<pre><code class="bash"># chmod 755 tomcat_restart.sh
-</code></pre>
-<p>最后通过crontab设定服务器定时任务，定时执行脚本，我们将这个服务重启的脚本设置为每周一早上5点重启，设定方式如下:</p>
-<pre><code class="bash"># crontab -e
-</code></pre>
-<p>进入定时任务编辑器</p>
-<p>使用vi编辑的方式，在文件最后添加如下内容:</p>
-<pre><code class="bash">0 5 * * 1 sh /home/serveradm/shells/jqbbserver_restart.sh
-</code></pre>
-<p>然后保存退出，即可成功设定</p>
-<p>crontab的日志通常在如下位置可以查看:</p>
-<pre><code class="bash">/var/log/cron
-</code></pre>
-<h2 id="日志定时切分"><a href="#日志定时切分" class="headerlink" title="日志定时切分"></a>日志定时切分</h2><p>我们以tomcat的catalina.out日志为例来说明日志切分的脚本</p>
-<p>脚本大致内容如下:</p>
-<pre><code class="bash">#!/bin/bash
-server_log_path=/home/serveradm/Tomcat/logs
-server_dist_log_path=/home/serveradm/Tomcat/logs/backups
-d=`date +%Y-%m-%d`
-d50=`date -d&#39;50 day ago&#39; +%Y-%m-%d`
-cd ${server_log_path} &amp;&amp; cp catalina.out ${server_dist_log_path}/catalina.out.$d.log
-echo &gt; catalina.out
-rm -rf ${server_dist_log_path}/catalina.out.${d50}.log #删除50天以前的日志
-</code></pre>
-<p>注意：脚本中的目录都需要正确，尤其是目标目录，需要提前新建并且有写入权限</p>
-<p>脚本编辑完成保存后，还需要给脚本赋予执行权限</p>
-<pre><code class="bash"># chmod 755 tomcat_restart.sh
-</code></pre>
-<p>最后通过crontab设定服务器定时任务，定时执行脚本，日志我们设定为每日23:59分进行切分，设定方式如下:</p>
-<pre><code class="bash"># crontab -e
-</code></pre>
-<p>进入定时任务编辑器</p>
-<p>使用vi编辑的方式，在文件最后添加如下内容:</p>
-<pre><code class="bash">59 23 * * * sh /home/serveradm/shells/tomcat_logcut.sh
-</code></pre>
-<p>然后保存退出，即可成功设定</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/06/25/base-devops-shells/" data-id="cjw664s2d0000cdzkfcg0bvmn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-forbidden-root-ssh" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/" class="article-date">
-  <time datetime="2018-06-08T07:24:54.000Z" itemprop="datePublished">2018-06-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/">Linux(CentOS)服务器用户的一些常用管理方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>罗列一些常用的用户、用户组、权限等操作方法，方便理解和使用linux的权限</p>
-<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h2><p>新建用户命令:</p>
-<pre><code class="bash">useradd -d /home/serveradm -m serveradm # 新建serveradm用户并且设定其用户目录为 /home/serveradm
-</code></pre>
-<p>修改用户密码命令:</p>
-<pre><code class="bash">passwd myuser   #回车输入密码 注意一定要带用户名，不然就是修改root!!!
-</code></pre>
-<p>限制用户权限命令:</p>
-<pre><code class="bash">chown serveradm -R /home/serveradm #这样用户myuser不能上传或修改其他目录文件，但是可以下载可以看，只读。
-</code></pre>
-<h2 id="新建用户组"><a href="#新建用户组" class="headerlink" title="新建用户组"></a>新建用户组</h2><p>增加一个新的用户组使用groupadd命令。 其格式如下：</p>
-<p>代码:<br>groupadd 选项 用户组</p>
-<p>可以使用的选项有：<br>代码:<br>-g GID 指定新用户组的组标识号（GID）。<br>-o 一般与-g选项同时使用，表示新用户组的GID可以与系统已有用户组的GID相同。</p>
-<pre><code class="bash">groupadd group1   #此命令向系统中增加了一个新组group1，新组的组标识号是在当前已有的最大组标识号的基础上加1。
-
-groupadd -g 101 group2 #此命令向系统中增加了一个新组group2，同时指定新组的组标识号是101。
-</code></pre>
-<h2 id="添加用户到组"><a href="#添加用户到组" class="headerlink" title="添加用户到组"></a>添加用户到组</h2><p>命令:</p>
-<pre><code class="bash">usermod -a -G groupA user
-</code></pre>
-<p>注意:不能直接用: usermod -G groupA，这样做会使你离开其他用户组，仅仅做为 这个用户组 groupA 的成员。</p>
-<p>命令的所有的选项，及其含义：</p>
-<pre><code class="bash">Options:
--c, --comment COMMENT         new value of the GECOS field
--d, --home HOME_DIR           new home directory for the user account
--e, --expiredate EXPIRE_DATE set account expiration date to EXPIRE_DATE
--f, --inactive INACTIVE       set password inactive after expiration
-to INACTIVE
--g, --gid GROUP               force use GROUP as new primary group
--G, --groups GROUPS           new list of supplementary GROUPS
--a, --append          append the user to the supplemental GROUPS
-mentioned by the -G option without removing
-him/her from other groups
--h, --help                    display this help message and exit
--l, --login NEW_LOGIN         new value of the login name
--L, --lock                    lock the user account
--m, --move-home               move contents of the home directory to the new
-location (use only with -d)
--o, --non-unique              allow using duplicate (non-unique) UID
--p, --password PASSWORD       use encrypted password for the new password
--s, --shell SHELL             new login shell for the user account
--u, --uid UID                 new UID for the user account
--U, --unlock                  unlock the user account
-</code></pre>
-<p>查看用户所属的组使用命令：</p>
-<pre><code class="bash">$ groups user
-</code></pre>
-<p>或者查看文件：</p>
-<pre><code class="bash">$ cat /etc/group
-</code></pre>
-<h2 id="普通用户赋予root权限"><a href="#普通用户赋予root权限" class="headerlink" title="普通用户赋予root权限"></a>普通用户赋予root权限</h2><p>修改 /etc/sudoers 文件，找到下面一行，在root下面添加一行，如下所示：</p>
-<pre><code class="bash">## Allow root to run any commands anywhere
-root    ALL=(ALL)     ALL
-bpascal   ALL=(ALL)     ALL
-</code></pre>
-<p>修改完毕，现在可以用bpascal帐号登录，然后用命令 su - ，即可获得root权限进行操作。</p>
-<h2 id="禁止root用户远程登录"><a href="#禁止root用户远程登录" class="headerlink" title="禁止root用户远程登录"></a>禁止root用户远程登录</h2><p>修改sshd_config文件</p>
-<pre><code class="bash">#vi /etc/ssh/sshd_config
-</code></pre>
-<p>把</p>
-<pre><code class="bash">PermitRootLogin yes
-</code></pre>
-<p>改为</p>
-<pre><code class="bash">PermitRootLogin no
-</code></pre>
-<p>重启sshd服务</p>
-<pre><code class="bash">service sshd restart
-</code></pre>
-<p>远程管理用普通用户sshuser登录，然后用 su root 切换到root用户拿到最高权限</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/06/08/forbidden-root-ssh/" data-id="cjw664s36000gcdzk51eyz6b3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-init-freessl-certbot-https" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/" class="article-date">
-  <time datetime="2018-05-29T00:48:51.000Z" itemprop="datePublished">2018-05-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/">通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>网站通常有安全以及防劫持篡改等需求，基础的一个解决办法就是加上SSL证书，使用https进行访问，但是通常证书都需要付费使用，且费用较高，所以之前未曾有很好的普及。在Let’s Encrypt的免费SSL服务出现之后，很多网站和web服务开始使用Let’s Encrypt的免费服务，比如SSL FOR FREE就提供了这个功能。</p>
-<h2 id="申请SSL-FOR-FREE的服务"><a href="#申请SSL-FOR-FREE的服务" class="headerlink" title="申请SSL FOR FREE的服务"></a>申请SSL FOR FREE的服务</h2><p>通过SSL FOR FREE网站按照步骤操作即可，写得非常详细，操作非常简单，实在英文不好的同学可以参考<a href="http://www.laozuo.org/7742.html" target="_blank" rel="noopener">这里</a></p>
-<p>SSL FOR FREE会生成三个文件，其中有一个是key文件，另外两个证书文件一个包含了中间证书而另外一个未包含，通常都选择包含了中间证书的文件作为最终的证书文件路径(例如微信小程序后台仅支持TLS v1.2的https服务并且要求有中间证书，否则在android设备上将无法访问后台)。另外也可以可以在<a href="https://www.myssl.cn/tools/merge-pem-cert.html" target="_blank" rel="noopener">这里</a>进行添加中间证书的操作。</p>
-<p>这样基本可以满足一些使用，但是有一个问题，就是这样生成的证书每次仅有90天的试用期，90天过后需要重新认证，操作比较麻烦；再后来出现了certbot，可以通过设置来进行90天的自动更新，这样基本可以满足要求较高的个人用户或者中小企业的安全需求。下面就其使用过程进行一下归纳总结。</p>
-<h2 id="安装certbot服务"><a href="#安装certbot服务" class="headerlink" title="安装certbot服务"></a>安装certbot服务</h2><p>首先需要有python2.7环境，通常主流服务器都已经有了python环境，如果有特殊情况需要自己安装的可参考<a href="https://www.cnblogs.com/feng18/p/5854912.html" target="_blank" rel="noopener">这里</a></p>
-<p>安装好python之后，分别执行如下命令:</p>
-<pre><code>yum install -y epel-release
-yum install -y certbot
-</code></pre><p>执行完之后则完成了certbot的安装，然后通过如下命令进行证书申请:</p>
-<pre><code># 使用方法：certbot certonly --webroot -w [Web站点目录] -d [站点域名] -m [联系人email地址] --agree-tos
-# 例如：
-certbot certonly --webroot -w /home/webadm/webroot/caishiduo/ -d www.caishiduo.com,caishiduo.com -m laijj@jiqibaba.com --agree-tos
-</code></pre><p>这里邮件信息一定要有效，快到期的时候会有邮件提醒的，安装完成后会有如下提示：</p>
-<pre><code>IMPORTANT NOTES:
- - Congratulations! Your certificate and chain have been saved at
-   /etc/letsencrypt/live/[xxx.xxx.xxx]/fullchain.pem. Your cert will
-   expire on 2017-03-20. To obtain a new or tweaked version of this
-   certificate in the future, simply run certbot again. To
-   non-interactively renew *all* of your certificates, run &quot;certbot
-   renew&quot;
- - If you like Certbot, please consider supporting our work by:
-
-   Donating to ISRG / Let&#39;s Encrypt:   https://letsencrypt.org/donate
-   Donating to EFF:                    https://eff.org/donate-le
-</code></pre><p>安装好之后，证书位置在</p>
-<pre><code>/etc/letsencrypt/live/mt.jiqibaba.com/
-</code></pre><p>这里有个坑，有时候有可能会报一个错:</p>
-<pre><code>ImportError: &#39;pyOpenSSL&#39; module missing required functionality. Try upgrading to v0.14 or newer.
-</code></pre><p>这是由于pyOpenSSL模块在python2.7上未更新的原因造成的，解决办法是使用如下命令更新python相关的包:</p>
-<pre><code>pip2 uninstall requests
-yum reinstall python-requests
-
-pip2 uninstall six
-yum reinstall python-six
-
-pip2 uninstall urllib3
-yum reinstall python-urllib3
-</code></pre><p>然后再重新执行申请证书的命令</p>
-<pre><code>certbot certonly --webroot -w /home/webadm/webroot/caishiduo/ -d www.caishiduo.com,caishiduo.com -m laijj@jiqibaba.com --agree-tos
-</code></pre><h2 id="设置自动更新证书"><a href="#设置自动更新证书" class="headerlink" title="设置自动更新证书"></a>设置自动更新证书</h2><p>因为证书有效期只有90天，故我们可以设置一个自动更新的crontab进行自动更新，省去一些烦恼的操作，certbot自带的更新指令如下:</p>
-<pre><code># 更新证书
-certbot renew --dry-run 
-# 如果不需要返回的信息，可以用静默方式：
-certbot renew --quiet
-</code></pre><p>配置的crontab如下:</p>
-<pre><code># 每月1号5时执行执行一次更新，并重启nginx服务器
-00 05 01 * * /usr/bin/certbot renew --quiet &amp;&amp; /bin/systemctl restart nginx
-</code></pre><p>注意，以上命令中重启nginx的指令根据部署情况可能各有不一样，可以灵活修改</p>
-<p>整个流程的配置参考了<a href="https://ruby-china.org/topics/31942" target="_blank" rel="noopener">这里</a></p>
-<p>完成以上配置后，即可正常使用https服务</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/05/29/init-freessl-certbot-https/" data-id="cjw664s38000icdzk2cpqhel4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-配置开发环境" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bpascal.github.io/2018/05/19/配置开发环境/" class="article-date">
-  <time datetime="2018-05-19T14:52:06.000Z" itemprop="datePublished">2018-05-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/bpascal.github.io/categories/架构/">架构</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bpascal.github.io/2018/05/19/配置开发环境/">配置开发环境</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在开始进入研发工作之前，先要部署一套开发环境</p>
-<h4 id="对于初创团队的起步阶段，开发环境的主要意义在于"><a href="#对于初创团队的起步阶段，开发环境的主要意义在于" class="headerlink" title="对于初创团队的起步阶段，开发环境的主要意义在于:"></a>对于初创团队的起步阶段，开发环境的主要意义在于:</h4><ol>
-<li>部署一套可以开发及测试的整体环境</li>
-<li>提供开发所需的数据库服务器，便于团队测试</li>
-<li>[可选]部署一套代码管理版本库，用户做版本控制</li>
-</ol>
-<h4 id="配置开发环境所需的工作如下："><a href="#配置开发环境所需的工作如下：" class="headerlink" title="配置开发环境所需的工作如下："></a>配置开发环境所需的工作如下：</h4><ol>
-<li>申请一台服务器，这里申请的是一台阿里云服务器</li>
-<li>配置几个非root账号(管理权限账号/版本库管理员账号/DBA账号)</li>
-<li>安装和配置MySQL数据库，流程参见:<a href="https://www.zybuluo.com/bpascal/note/703041" target="_blank" rel="noopener">https://www.zybuluo.com/bpascal/note/703041</a></li>
-<li><p>安装和配置JDK1.8，参考(<a href="http://blog.csdn.net/czmchen/article/details/41047187" target="_blank" rel="noopener">http://blog.csdn.net/czmchen/article/details/41047187</a>)</p>
-<ul>
-<li>下载最新包:(<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>)</li>
-<li><p>检验系统原版本</p>
-<pre><code class="bash">java -version
-</code></pre>
-</li>
-<li><p>进一步查看JDK信息，看看是否有openjdk</p>
-<pre><code class="bash">rpm -qa | grep java
-</code></pre>
-</li>
-<li><p>如果有openjdk，则卸载</p>
-<pre><code class="bash">rpm -e {包名}
-</code></pre>
-</li>
-<li>安装JDK<pre><code class="bash">rpm -ivh jdk.......
-</code></pre>
-</li>
-<li>JDK默认安装在/usr/java中</li>
-<li><p>验证安装</p>
-<pre><code class="bash"># java
-Usage: java [-options] class [args...]
-     (to execute a class)
-or  java [-options] -jar jarfile [args...]
-     (to execute a jar file)
-</code></pre>
-</li>
-<li><p>配置环境变量</p>
-<pre><code class="bash">vi /etc/profile
-</code></pre>
-</li>
-<li><p>添加如下内容</p>
-<pre><code class="bash">JAVA_HOME=/usr/java/jdk1.8.0_121
-JRE_HOME=/usr/java/jdk1.8.0_121/jre
-PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
-CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
-export JAVA_HOME JRE_HOME PATH CLASSPATH
-</code></pre>
-</li>
-</ul>
-</li>
-<li><p>安装和配置Tomcat 8.5<br> 参考:<a href="http://blog.csdn.net/czmchen/article/details/41047455" target="_blank" rel="noopener">http://blog.csdn.net/czmchen/article/details/41047455</a></p>
-<ul>
-<li>下载tomcat并上传到相应的目录</li>
-<li><p>新建一个用户，用于此tomcat使用，主目录为/home/XXServer</p>
-<pre><code class="bash">useradd –d /usr/sam -m sam
-</code></pre>
-</li>
-<li>将安装包移动到此目录</li>
-<li><p>解压安装包</p>
-<pre><code class="bash">tar -xvf apa...tomcat....
-</code></pre>
-</li>
-<li>修改端口</li>
-<li>启动tomcat</li>
-<li><p>如果遇到启动慢的问题，则修改jdk1.x.x_xx/jre/lib/security/Java.security中的securerandom.source设置项，将其改为：securerandom.source=file:/dev/urandom</p>
-</li>
-<li><p>添加tomcat到自动启动项</p>
-</li>
-<li>开放防火墙</li>
-</ul>
-</li>
-<li><p>安装nginx(<a href="http://www.centoscn.com/image-text/install/2014/0812/3480.html" target="_blank" rel="noopener">http://www.centoscn.com/image-text/install/2014/0812/3480.html</a>)</p>
-<ul>
-<li>安装依赖<pre><code>yum install gcc-c++  
-yum install pcre pcre-devel  
-yum install zlib zlib-devel  
-yum install openssl openssl--devel  
-</code></pre></li>
-<li>从<a href="http://nginx.org/download/上下载相应的版本" target="_blank" rel="noopener">http://nginx.org/download/上下载相应的版本</a></li>
-<li>解压 tar -zxvf nginx-1.5.9.tar.gz </li>
-<li>设置一下配置信息 <pre><code>./configure --prefix=/usr/local/nginx
-make
-make install
-</code></pre></li>
-<li>查看配置信息是否正确<pre><code>/usr/local/nginx/sbin/nginx -t
-</code></pre></li>
-<li>启动操作<pre><code>/usr/local/nginx/sbin/nginx
-</code></pre></li>
-<li>停止操作 kill命令</li>
-<li>平滑重启<br>如果更改了配置就要重启Nginx，要先关闭Nginx再打开？不是的，可以向Nginx 发送信号，平滑重启。<br>平滑重启命令：<br>kill -HUP 住进称号或进程号文件路径<br>或者使用<br>/usr/local/nginx/sbin/nginx -s reload</li>
-<li>修改了配置文件后最好先检查一下修改过的配置文件是否正 确，以免重启后Nginx出现错误影响服务器稳定运行。判断Nginx配置是否正确命令如下：<pre><code>nginx -t -c /usr/local/nginx/conf/nginx.conf
-## 或者
-/usr/local/nginx/sbin/nginx -t
-</code></pre></li>
-<li>添加用户到组usermod -a -G groupA user</li>
-</ul>
-</li>
-</ol>
-<h4 id="代码提交Git"><a href="#代码提交Git" class="headerlink" title="代码提交Git"></a>代码提交Git</h4><ol>
-<li><p>生成ssh key</p>
-<pre><code class="bash">cd ~/.ssh
-ssh-keygen -t rsa -C laijj@jiqibaba.com
-</code></pre>
-</li>
-<li><p>回车后输入密码</p>
-</li>
-<li>添加程序版本到Git服务器</li>
-<li>做关联提交</li>
-<li>验证</li>
-</ol>
-<h4 id="生成接口文档"><a href="#生成接口文档" class="headerlink" title="生成接口文档"></a>生成接口文档</h4><ol>
-<li>安装node.js环境<br> 参考<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000" target="_blank" rel="noopener">这里</a><br> 确保node和npm能正常运行</li>
-<li>安装apidoc<pre><code class="bash"> npm install apidoc -g 
- # 等待进度走完后，输入
- apidoc -h
-</code></pre>
- 出现相关提示信息，则说明安装成功了</li>
-<li><p>生成文档<br> 在工程目录下，输入如下命令即可在doc目录下生成接口文档</p>
-<pre><code class="bash"> apidoc -i src/ -o doc/
-</code></pre>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/05/19/配置开发环境/" data-id="cjw664s3b000kcdzk2mk6mv24" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bpascal.github.io/2018/05/18/hello-world/" class="article-date">
-  <time datetime="2018-05-18T01:11:12.000Z" itemprop="datePublished">2018-05-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/bpascal.github.io/categories/闲话/">闲话</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bpascal.github.io/2018/05/18/hello-world/">hello，撕裂之谷</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>世界上只有0.0001%的人来到过撕裂之谷，对于你和我来说我们都是幸运的</p>
-<h2 id="欢迎来到撕裂之谷"><a href="#欢迎来到撕裂之谷" class="headerlink" title="欢迎来到撕裂之谷"></a>欢迎来到撕裂之谷</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>撕裂之谷是我的个人博客，记录日常工作和生活中的各种事件，偶尔也会有一些彩蛋</p>
-<h3 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h3><p>双例模式，程序猿一枚，轻度极客，爱好各种黑科技和新技术</p>
-<p>More info: <a href="https://www.rivendell.vip/about/" target="_blank" rel="noopener">关于我</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/05/18/hello-world/" data-id="cjw664s31000acdzkn1nodn35" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/个人/">个人</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/架构/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/闲话/">闲话</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/个人/">个人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/bpascal.github.io/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/bpascal.github.io/tags/Java/" style="font-size: 10px;">Java</a> <a href="/bpascal.github.io/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/bpascal.github.io/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/bpascal.github.io/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/bpascal.github.io/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/bpascal.github.io/tags/个人/" style="font-size: 10px;">个人</a> <a href="/bpascal.github.io/tags/基础/" style="font-size: 20px;">基础</a> <a href="/bpascal.github.io/tags/开发/" style="font-size: 15px;">开发</a> <a href="/bpascal.github.io/tags/运维/" style="font-size: 20px;">运维</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/05/">五月 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/bpascal.github.io/2018/10/19/centoswithmysql/">CentOS上安装MySQL</a>
-          </li>
-        
-          <li>
-            <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/">安装nginx并且支持rewrite和ssl</a>
-          </li>
-        
-          <li>
-            <a href="/bpascal.github.io/2018/06/25/base-devops-shells/">简单基础的linux运维脚本</a>
-          </li>
-        
-          <li>
-            <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/">Linux(CentOS)服务器用户的一些常用管理方法</a>
-          </li>
-        
-          <li>
-            <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/">通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 双例模式<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/bpascal.github.io/" class="mobile-nav-link">Home</a>
-  
-    <a href="/bpascal.github.io/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/bpascal" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
 
 
-  <link rel="stylesheet" href="/bpascal.github.io/fancybox/jquery.fancybox.css">
-  <script src="/bpascal.github.io/fancybox/jquery.fancybox.pack.js"></script>
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;撕裂之谷
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
 
 
-<script src="/bpascal.github.io/js/script.js"></script>
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/bpascal.github.io/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-  </div>
-</body>
+    <script>lsloader.load("js_js","/bpascal.github.io/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/bpascal.github.io/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/bpascal.github.io/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+    <!-- Swiftye -->
+    
+
+    <!-- Local Search-->
+    
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/bpascal.github.io/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/bpascal.github.io/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
 </html>
