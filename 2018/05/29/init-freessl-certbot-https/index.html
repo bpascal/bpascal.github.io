@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书 | 撕裂之谷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="网站通常有安全以及防劫持篡改等需求，基础的一个解决办法就是加上SSL证书，使用https进行访问，但是通常证书都需要付费使用，且费用较高，所以之前未曾有很好的普及。在Let’s Encrypt的免费SSL服务出现之后，很多网站和web服务开始使用Let’s Encrypt的免费服务，比如SSL FOR FREE就提供了这个功能。 申请SSL FOR FREE的服务通过SSL FOR FREE网站">
+<meta name="keywords" content="运维,基础,Linux,开发,Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书">
+<meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/2018/05/29/init-freessl-certbot-https/index.html">
+<meta property="og:site_name" content="撕裂之谷">
+<meta property="og:description" content="网站通常有安全以及防劫持篡改等需求，基础的一个解决办法就是加上SSL证书，使用https进行访问，但是通常证书都需要付费使用，且费用较高，所以之前未曾有很好的普及。在Let’s Encrypt的免费SSL服务出现之后，很多网站和web服务开始使用Let’s Encrypt的免费服务，比如SSL FOR FREE就提供了这个功能。 申请SSL FOR FREE的服务通过SSL FOR FREE网站">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-12T06:45:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书">
+<meta name="twitter:description" content="网站通常有安全以及防劫持篡改等需求，基础的一个解决办法就是加上SSL证书，使用https进行访问，但是通常证书都需要付费使用，且费用较高，所以之前未曾有很好的普及。在Let’s Encrypt的免费SSL服务出现之后，很多网站和web服务开始使用Let’s Encrypt的免费服务，比如SSL FOR FREE就提供了这个功能。 申请SSL FOR FREE的服务通过SSL FOR FREE网站">
+  
+    <link rel="alternate" href="/bpascal.github.io/atom.xml" title="撕裂之谷" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/bpascal.github.io/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/bpascal.github.io/" id="logo">撕裂之谷</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/bpascal.github.io/" id="subtitle">Rivendell</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/bpascal.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bpascal.github.io/bpascal.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-init-freessl-certbot-https" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/" class="article-date">
+  <time datetime="2018-05-29T00:48:51.000Z" itemprop="datePublished">2018-05-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网站通常有安全以及防劫持篡改等需求，基础的一个解决办法就是加上SSL证书，使用https进行访问，但是通常证书都需要付费使用，且费用较高，所以之前未曾有很好的普及。在Let’s Encrypt的免费SSL服务出现之后，很多网站和web服务开始使用Let’s Encrypt的免费服务，比如SSL FOR FREE就提供了这个功能。</p>
+<h2 id="申请SSL-FOR-FREE的服务"><a href="#申请SSL-FOR-FREE的服务" class="headerlink" title="申请SSL FOR FREE的服务"></a>申请SSL FOR FREE的服务</h2><p>通过SSL FOR FREE网站按照步骤操作即可，写得非常详细，操作非常简单，实在英文不好的同学可以参考<a href="http://www.laozuo.org/7742.html" target="_blank" rel="noopener">这里</a></p>
+<p>SSL FOR FREE会生成三个文件，其中有一个是key文件，另外两个证书文件一个包含了中间证书而另外一个未包含，通常都选择包含了中间证书的文件作为最终的证书文件路径(例如微信小程序后台仅支持TLS v1.2的https服务并且要求有中间证书，否则在android设备上将无法访问后台)。另外也可以可以在<a href="https://www.myssl.cn/tools/merge-pem-cert.html" target="_blank" rel="noopener">这里</a>进行添加中间证书的操作。</p>
+<p>这样基本可以满足一些使用，但是有一个问题，就是这样生成的证书每次仅有90天的试用期，90天过后需要重新认证，操作比较麻烦；再后来出现了certbot，可以通过设置来进行90天的自动更新，这样基本可以满足要求较高的个人用户或者中小企业的安全需求。下面就其使用过程进行一下归纳总结。</p>
+<h2 id="安装certbot服务"><a href="#安装certbot服务" class="headerlink" title="安装certbot服务"></a>安装certbot服务</h2><p>首先需要有python2.7环境，通常主流服务器都已经有了python环境，如果有特殊情况需要自己安装的可参考<a href="https://www.cnblogs.com/feng18/p/5854912.html" target="_blank" rel="noopener">这里</a></p>
+<p>安装好python之后，分别执行如下命令:</p>
+<pre><code>yum install -y epel-release
+yum install -y certbot
+</code></pre><p>执行完之后则完成了certbot的安装，然后通过如下命令进行证书申请:</p>
+<pre><code># 使用方法：certbot certonly --webroot -w [Web站点目录] -d [站点域名] -m [联系人email地址] --agree-tos
+# 例如：
+certbot certonly --webroot -w /home/webadm/webroot/caishiduo/ -d www.caishiduo.com,caishiduo.com -m laijj@jiqibaba.com --agree-tos
+</code></pre><p>这里邮件信息一定要有效，快到期的时候会有邮件提醒的，安装完成后会有如下提示：</p>
+<pre><code>IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at
+   /etc/letsencrypt/live/[xxx.xxx.xxx]/fullchain.pem. Your cert will
+   expire on 2017-03-20. To obtain a new or tweaked version of this
+   certificate in the future, simply run certbot again. To
+   non-interactively renew *all* of your certificates, run &quot;certbot
+   renew&quot;
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let&#39;s Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+</code></pre><p>安装好之后，证书位置在</p>
+<pre><code>/etc/letsencrypt/live/mt.jiqibaba.com/
+</code></pre><p>这里有个坑，有时候有可能会报一个错:</p>
+<pre><code>ImportError: &#39;pyOpenSSL&#39; module missing required functionality. Try upgrading to v0.14 or newer.
+</code></pre><p>这是由于pyOpenSSL模块在python2.7上未更新的原因造成的，解决办法是使用如下命令更新python相关的包:</p>
+<pre><code>pip2 uninstall requests
+yum reinstall python-requests
+
+pip2 uninstall six
+yum reinstall python-six
+
+pip2 uninstall urllib3
+yum reinstall python-urllib3
+</code></pre><p>然后再重新执行申请证书的命令</p>
+<pre><code>certbot certonly --webroot -w /home/webadm/webroot/caishiduo/ -d www.caishiduo.com,caishiduo.com -m laijj@jiqibaba.com --agree-tos
+</code></pre><h2 id="设置自动更新证书"><a href="#设置自动更新证书" class="headerlink" title="设置自动更新证书"></a>设置自动更新证书</h2><p>因为证书有效期只有90天，故我们可以设置一个自动更新的crontab进行自动更新，省去一些烦恼的操作，certbot自带的更新指令如下:</p>
+<pre><code># 更新证书
+certbot renew --dry-run 
+# 如果不需要返回的信息，可以用静默方式：
+certbot renew --quiet
+</code></pre><p>配置的crontab如下:</p>
+<pre><code># 每月1号5时执行执行一次更新，并重启nginx服务器
+00 05 01 * * /usr/bin/certbot renew --quiet &amp;&amp; /bin/systemctl restart nginx
+</code></pre><p>注意，以上命令中重启nginx的指令根据部署情况可能各有不一样，可以灵活修改</p>
+<p>整个流程的配置参考了<a href="https://ruby-china.org/topics/31942" target="_blank" rel="noopener">这里</a></p>
+<p>完成以上配置后，即可正常使用https服务</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/05/29/init-freessl-certbot-https/" data-id="cjw664s38000icdzk2cpqhel4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux(CentOS)服务器用户的一些常用管理方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/bpascal.github.io/2018/05/19/配置开发环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">配置开发环境</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/架构/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/闲话/">闲话</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/个人/">个人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/bpascal.github.io/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/bpascal.github.io/tags/Java/" style="font-size: 10px;">Java</a> <a href="/bpascal.github.io/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/bpascal.github.io/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/bpascal.github.io/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/bpascal.github.io/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/bpascal.github.io/tags/个人/" style="font-size: 10px;">个人</a> <a href="/bpascal.github.io/tags/基础/" style="font-size: 20px;">基础</a> <a href="/bpascal.github.io/tags/开发/" style="font-size: 15px;">开发</a> <a href="/bpascal.github.io/tags/运维/" style="font-size: 20px;">运维</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/10/19/centoswithmysql/">CentOS上安装MySQL</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/">安装nginx并且支持rewrite和ssl</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/25/base-devops-shells/">简单基础的linux运维脚本</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/">Linux(CentOS)服务器用户的一些常用管理方法</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/">通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 双例模式<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/bpascal.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/bpascal.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/bpascal.github.io/fancybox/jquery.fancybox.css">
+  <script src="/bpascal.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/bpascal.github.io/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

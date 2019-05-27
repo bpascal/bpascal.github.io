@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>安装nginx并且支持rewrite和ssl | 撕裂之谷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="nginx现在基本是环境上的必需品，要求ssl的场景也是越来越多，这里把安装过程记录一下 安装基础环境支持rewrite功能安装，直接走nginx强制重定向需要此功能支持 # yum install pcre*  ssl功能安装，需要支持https访问的情况下需要此功能支持 # yum install openssl*   gzip 类库安装，需要在nginx支持压缩和解压功能的需要此功能支持 #">
+<meta name="keywords" content="运维,基础,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装nginx并且支持rewrite和ssl">
+<meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/2018/08/10/install-nginx-with-ssl/index.html">
+<meta property="og:site_name" content="撕裂之谷">
+<meta property="og:description" content="nginx现在基本是环境上的必需品，要求ssl的场景也是越来越多，这里把安装过程记录一下 安装基础环境支持rewrite功能安装，直接走nginx强制重定向需要此功能支持 # yum install pcre*  ssl功能安装，需要支持https访问的情况下需要此功能支持 # yum install openssl*   gzip 类库安装，需要在nginx支持压缩和解压功能的需要此功能支持 #">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-27T09:06:20.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装nginx并且支持rewrite和ssl">
+<meta name="twitter:description" content="nginx现在基本是环境上的必需品，要求ssl的场景也是越来越多，这里把安装过程记录一下 安装基础环境支持rewrite功能安装，直接走nginx强制重定向需要此功能支持 # yum install pcre*  ssl功能安装，需要支持https访问的情况下需要此功能支持 # yum install openssl*   gzip 类库安装，需要在nginx支持压缩和解压功能的需要此功能支持 #">
+  
+    <link rel="alternate" href="/bpascal.github.io/atom.xml" title="撕裂之谷" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/bpascal.github.io/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/bpascal.github.io/" id="logo">撕裂之谷</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/bpascal.github.io/" id="subtitle">Rivendell</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/bpascal.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bpascal.github.io/bpascal.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-install-nginx-with-ssl" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/" class="article-date">
+  <time datetime="2018-08-10T01:16:18.000Z" itemprop="datePublished">2018-08-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/bpascal.github.io/categories/基础/">基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      安装nginx并且支持rewrite和ssl
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>nginx现在基本是环境上的必需品，要求ssl的场景也是越来越多，这里把安装过程记录一下</p>
+<h2 id="安装基础环境支持"><a href="#安装基础环境支持" class="headerlink" title="安装基础环境支持"></a>安装基础环境支持</h2><p>rewrite功能安装，直接走nginx强制重定向需要此功能支持</p>
+<pre><code class="bash"># yum install pcre*
+</code></pre>
+<p>ssl功能安装，需要支持https访问的情况下需要此功能支持</p>
+<pre><code class="bash"># yum install openssl* 
+</code></pre>
+<p>gzip 类库安装，需要在nginx支持压缩和解压功能的需要此功能支持</p>
+<pre><code class="bash"># yum install zlib zlib-devel
+</code></pre>
+<h2 id="下载及解压"><a href="#下载及解压" class="headerlink" title="下载及解压"></a>下载及解压</h2><p><a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
+<pre><code class="bash"># wget http://nginx.org/download/nginx-1.16.0.tar.gz
+</code></pre>
+<p>解压</p>
+<pre><code class="bash"># tar -zxvf nginx-1.16.0.tar.gz
+</code></pre>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>进入nginx的解压目录</p>
+<pre><code class="bash"># cd nginx-1.16.0.tar.gz
+</code></pre>
+<p>设置编译参数，这里是个关键，需要配置ssl</p>
+<pre><code class="bash"># ./configure --prefix=/usr/local/nginx --with-http_ssl_module --user=nginx --group=nginx --with-pcre
+</code></pre>
+<p>然后make 并 make install</p>
+<pre><code class="bash"># make
+# make install 
+</code></pre>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>安装完成后验证nginx是否安装正确</p>
+<pre><code class="bash">/usr/local/nginx/sbin/nginx -V
+</code></pre>
+<p>如果输出类似一下的正常的版本号及配置信息，则说明安装正确</p>
+<pre><code class="bash">nginx version: nginx/1.14.0
+built by gcc 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC)
+built with OpenSSL 1.0.2k-fips  26 Jan 2017
+TLS SNI support enabled
+configure arguments: --prefix=/usr/local/nginx --with-http_ssl_module --user=nginx --group=nginx --with-pcre
+</code></pre>
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><pre><code class="bash"># /usr/local/nginx/sbin/nginx   启动
+# /usr/local/nginx/sbin/nginx -s stop  停止
+# /usr/local/nginx/sbin/nginx -s reload  重新载入
+# /usr/local/nginx/sbin/nginx -v  查看版本
+# /usr/local/nginx/sbin/nginx -t  测试配置文件是否正常
+# pkill nginx  强制关闭
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/08/10/install-nginx-with-ssl/" data-id="cjw664s3e000ocdzk1qjhy2qu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/bpascal.github.io/2018/10/19/centoswithmysql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CentOS上安装MySQL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/bpascal.github.io/2018/06/25/base-devops-shells/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">简单基础的linux运维脚本</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/架构/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/闲话/">闲话</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/个人/">个人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/bpascal.github.io/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/bpascal.github.io/tags/Java/" style="font-size: 10px;">Java</a> <a href="/bpascal.github.io/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/bpascal.github.io/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/bpascal.github.io/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/bpascal.github.io/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/bpascal.github.io/tags/个人/" style="font-size: 10px;">个人</a> <a href="/bpascal.github.io/tags/基础/" style="font-size: 20px;">基础</a> <a href="/bpascal.github.io/tags/开发/" style="font-size: 15px;">开发</a> <a href="/bpascal.github.io/tags/运维/" style="font-size: 20px;">运维</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/10/19/centoswithmysql/">CentOS上安装MySQL</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/">安装nginx并且支持rewrite和ssl</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/25/base-devops-shells/">简单基础的linux运维脚本</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/">Linux(CentOS)服务器用户的一些常用管理方法</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/">通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 双例模式<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/bpascal.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/bpascal.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/bpascal.github.io/fancybox/jquery.fancybox.css">
+  <script src="/bpascal.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/bpascal.github.io/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>配置开发环境 | 撕裂之谷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在开始进入研发工作之前，先要部署一套开发环境 对于初创团队的起步阶段，开发环境的主要意义在于: 部署一套可以开发及测试的整体环境 提供开发所需的数据库服务器，便于团队测试 [可选]部署一套代码管理版本库，用户做版本控制  配置开发环境所需的工作如下： 申请一台服务器，这里申请的是一台阿里云服务器 配置几个非root账号(管理权限账号/版本库管理员账号/DBA账号) 安装和配置MySQL数据库，流程">
+<meta name="keywords" content="运维,基础,Linux,开发,Java,MySql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置开发环境">
+<meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/2018/05/19/配置开发环境/index.html">
+<meta property="og:site_name" content="撕裂之谷">
+<meta property="og:description" content="在开始进入研发工作之前，先要部署一套开发环境 对于初创团队的起步阶段，开发环境的主要意义在于: 部署一套可以开发及测试的整体环境 提供开发所需的数据库服务器，便于团队测试 [可选]部署一套代码管理版本库，用户做版本控制  配置开发环境所需的工作如下： 申请一台服务器，这里申请的是一台阿里云服务器 配置几个非root账号(管理权限账号/版本库管理员账号/DBA账号) 安装和配置MySQL数据库，流程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-20T01:56:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配置开发环境">
+<meta name="twitter:description" content="在开始进入研发工作之前，先要部署一套开发环境 对于初创团队的起步阶段，开发环境的主要意义在于: 部署一套可以开发及测试的整体环境 提供开发所需的数据库服务器，便于团队测试 [可选]部署一套代码管理版本库，用户做版本控制  配置开发环境所需的工作如下： 申请一台服务器，这里申请的是一台阿里云服务器 配置几个非root账号(管理权限账号/版本库管理员账号/DBA账号) 安装和配置MySQL数据库，流程">
+  
+    <link rel="alternate" href="/bpascal.github.io/atom.xml" title="撕裂之谷" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/bpascal.github.io/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/bpascal.github.io/" id="logo">撕裂之谷</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/bpascal.github.io/" id="subtitle">Rivendell</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/bpascal.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/bpascal.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bpascal.github.io/bpascal.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-配置开发环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/bpascal.github.io/2018/05/19/配置开发环境/" class="article-date">
+  <time datetime="2018-05-19T14:52:06.000Z" itemprop="datePublished">2018-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/bpascal.github.io/categories/架构/">架构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      配置开发环境
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开始进入研发工作之前，先要部署一套开发环境</p>
+<h4 id="对于初创团队的起步阶段，开发环境的主要意义在于"><a href="#对于初创团队的起步阶段，开发环境的主要意义在于" class="headerlink" title="对于初创团队的起步阶段，开发环境的主要意义在于:"></a>对于初创团队的起步阶段，开发环境的主要意义在于:</h4><ol>
+<li>部署一套可以开发及测试的整体环境</li>
+<li>提供开发所需的数据库服务器，便于团队测试</li>
+<li>[可选]部署一套代码管理版本库，用户做版本控制</li>
+</ol>
+<h4 id="配置开发环境所需的工作如下："><a href="#配置开发环境所需的工作如下：" class="headerlink" title="配置开发环境所需的工作如下："></a>配置开发环境所需的工作如下：</h4><ol>
+<li>申请一台服务器，这里申请的是一台阿里云服务器</li>
+<li>配置几个非root账号(管理权限账号/版本库管理员账号/DBA账号)</li>
+<li>安装和配置MySQL数据库，流程参见:<a href="https://www.zybuluo.com/bpascal/note/703041" target="_blank" rel="noopener">https://www.zybuluo.com/bpascal/note/703041</a></li>
+<li><p>安装和配置JDK1.8，参考(<a href="http://blog.csdn.net/czmchen/article/details/41047187" target="_blank" rel="noopener">http://blog.csdn.net/czmchen/article/details/41047187</a>)</p>
+<ul>
+<li>下载最新包:(<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>)</li>
+<li><p>检验系统原版本</p>
+<pre><code class="bash">java -version
+</code></pre>
+</li>
+<li><p>进一步查看JDK信息，看看是否有openjdk</p>
+<pre><code class="bash">rpm -qa | grep java
+</code></pre>
+</li>
+<li><p>如果有openjdk，则卸载</p>
+<pre><code class="bash">rpm -e {包名}
+</code></pre>
+</li>
+<li>安装JDK<pre><code class="bash">rpm -ivh jdk.......
+</code></pre>
+</li>
+<li>JDK默认安装在/usr/java中</li>
+<li><p>验证安装</p>
+<pre><code class="bash"># java
+Usage: java [-options] class [args...]
+     (to execute a class)
+or  java [-options] -jar jarfile [args...]
+     (to execute a jar file)
+</code></pre>
+</li>
+<li><p>配置环境变量</p>
+<pre><code class="bash">vi /etc/profile
+</code></pre>
+</li>
+<li><p>添加如下内容</p>
+<pre><code class="bash">JAVA_HOME=/usr/java/jdk1.8.0_121
+JRE_HOME=/usr/java/jdk1.8.0_121/jre
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+export JAVA_HOME JRE_HOME PATH CLASSPATH
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>安装和配置Tomcat 8.5<br> 参考:<a href="http://blog.csdn.net/czmchen/article/details/41047455" target="_blank" rel="noopener">http://blog.csdn.net/czmchen/article/details/41047455</a></p>
+<ul>
+<li>下载tomcat并上传到相应的目录</li>
+<li><p>新建一个用户，用于此tomcat使用，主目录为/home/XXServer</p>
+<pre><code class="bash">useradd –d /usr/sam -m sam
+</code></pre>
+</li>
+<li>将安装包移动到此目录</li>
+<li><p>解压安装包</p>
+<pre><code class="bash">tar -xvf apa...tomcat....
+</code></pre>
+</li>
+<li>修改端口</li>
+<li>启动tomcat</li>
+<li><p>如果遇到启动慢的问题，则修改jdk1.x.x_xx/jre/lib/security/Java.security中的securerandom.source设置项，将其改为：securerandom.source=file:/dev/urandom</p>
+</li>
+<li><p>添加tomcat到自动启动项</p>
+</li>
+<li>开放防火墙</li>
+</ul>
+</li>
+<li><p>安装nginx(<a href="http://www.centoscn.com/image-text/install/2014/0812/3480.html" target="_blank" rel="noopener">http://www.centoscn.com/image-text/install/2014/0812/3480.html</a>)</p>
+<ul>
+<li>安装依赖<pre><code>yum install gcc-c++  
+yum install pcre pcre-devel  
+yum install zlib zlib-devel  
+yum install openssl openssl--devel  
+</code></pre></li>
+<li>从<a href="http://nginx.org/download/上下载相应的版本" target="_blank" rel="noopener">http://nginx.org/download/上下载相应的版本</a></li>
+<li>解压 tar -zxvf nginx-1.5.9.tar.gz </li>
+<li>设置一下配置信息 <pre><code>./configure --prefix=/usr/local/nginx
+make
+make install
+</code></pre></li>
+<li>查看配置信息是否正确<pre><code>/usr/local/nginx/sbin/nginx -t
+</code></pre></li>
+<li>启动操作<pre><code>/usr/local/nginx/sbin/nginx
+</code></pre></li>
+<li>停止操作 kill命令</li>
+<li>平滑重启<br>如果更改了配置就要重启Nginx，要先关闭Nginx再打开？不是的，可以向Nginx 发送信号，平滑重启。<br>平滑重启命令：<br>kill -HUP 住进称号或进程号文件路径<br>或者使用<br>/usr/local/nginx/sbin/nginx -s reload</li>
+<li>修改了配置文件后最好先检查一下修改过的配置文件是否正 确，以免重启后Nginx出现错误影响服务器稳定运行。判断Nginx配置是否正确命令如下：<pre><code>nginx -t -c /usr/local/nginx/conf/nginx.conf
+## 或者
+/usr/local/nginx/sbin/nginx -t
+</code></pre></li>
+<li>添加用户到组usermod -a -G groupA user</li>
+</ul>
+</li>
+</ol>
+<h4 id="代码提交Git"><a href="#代码提交Git" class="headerlink" title="代码提交Git"></a>代码提交Git</h4><ol>
+<li><p>生成ssh key</p>
+<pre><code class="bash">cd ~/.ssh
+ssh-keygen -t rsa -C laijj@jiqibaba.com
+</code></pre>
+</li>
+<li><p>回车后输入密码</p>
+</li>
+<li>添加程序版本到Git服务器</li>
+<li>做关联提交</li>
+<li>验证</li>
+</ol>
+<h4 id="生成接口文档"><a href="#生成接口文档" class="headerlink" title="生成接口文档"></a>生成接口文档</h4><ol>
+<li>安装node.js环境<br> 参考<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000" target="_blank" rel="noopener">这里</a><br> 确保node和npm能正常运行</li>
+<li>安装apidoc<pre><code class="bash"> npm install apidoc -g 
+ # 等待进度走完后，输入
+ apidoc -h
+</code></pre>
+ 出现相关提示信息，则说明安装成功了</li>
+<li><p>生成文档<br> 在工程目录下，输入如下命令即可在doc目录下生成接口文档</p>
+<pre><code class="bash"> apidoc -i src/ -o doc/
+</code></pre>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bpascal.github.io/bpascal.github.io/2018/05/19/配置开发环境/" data-id="cjw664s3b000kcdzk2mk6mv24" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书
+        
+      </div>
+    </a>
+  
+  
+    <a href="/bpascal.github.io/2018/05/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hello，撕裂之谷</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/架构/">架构</a></li><li class="category-list-item"><a class="category-list-link" href="/bpascal.github.io/categories/闲话/">闲话</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/个人/">个人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/开发/">开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bpascal.github.io/tags/运维/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/bpascal.github.io/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/bpascal.github.io/tags/Java/" style="font-size: 10px;">Java</a> <a href="/bpascal.github.io/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/bpascal.github.io/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/bpascal.github.io/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/bpascal.github.io/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/bpascal.github.io/tags/个人/" style="font-size: 10px;">个人</a> <a href="/bpascal.github.io/tags/基础/" style="font-size: 20px;">基础</a> <a href="/bpascal.github.io/tags/开发/" style="font-size: 15px;">开发</a> <a href="/bpascal.github.io/tags/运维/" style="font-size: 20px;">运维</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bpascal.github.io/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/10/19/centoswithmysql/">CentOS上安装MySQL</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/08/10/install-nginx-with-ssl/">安装nginx并且支持rewrite和ssl</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/25/base-devops-shells/">简单基础的linux运维脚本</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/06/08/forbidden-root-ssh/">Linux(CentOS)服务器用户的一些常用管理方法</a>
+          </li>
+        
+          <li>
+            <a href="/bpascal.github.io/2018/05/29/init-freessl-certbot-https/">通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 双例模式<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/bpascal.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/bpascal.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/bpascal.github.io/fancybox/jquery.fancybox.css">
+  <script src="/bpascal.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/bpascal.github.io/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
