@@ -242,7 +242,7 @@
 
     
         <meta property="article:published_time" content="Sat Jul 20 2019 22:06:14 GMT+0800">
-        <meta property="article:modified_time" content="Sat Jul 20 2019 22:21:35 GMT+0800">
+        <meta property="article:modified_time" content="Sat Jul 20 2019 22:30:07 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2019/07/20/centos安装docker/index.html",
     "headline": "centos7安装docker",
     "datePublished": "Sat Jul 20 2019 22:06:14 GMT+0800",
-    "dateModified": "Sat Jul 20 2019 22:21:35 GMT+0800",
+    "dateModified": "Sat Jul 20 2019 22:30:07 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "双例模式",
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检查环境"><span class="post-toc-number">1.</span> <span class="post-toc-text">检查环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#正式安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">正式安装</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检查环境"><span class="post-toc-number">1.</span> <span class="post-toc-text">检查环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#正式安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">正式安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装后配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装后配置</span></a></li></ol>
     </ul>
     
 
@@ -535,12 +535,43 @@ file /usr/bin/docker-containerd-shim from install of docker-ce-17.12.0.ce-1.el7.
 file /usr/bin/dockerd from install of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with file from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
 </code></pre>
 </li>
-</ol>
-<p>此时需要卸载旧版本的包</p>
+<li><p>如有上述报错，此时需要卸载旧版本的包</p>
 <pre><code class="bash"># sudo yum remove docker  docker-common docker-selinux docker-engine
 # sudo yum erase docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
 </code></pre>
-<h4 id="正式安装"><a href="#正式安装" class="headerlink" title="正式安装"></a>正式安装</h4>
+</li>
+</ol>
+<h4 id="正式安装"><a href="#正式安装" class="headerlink" title="正式安装"></a>正式安装</h4><ol>
+<li><p>安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
+<pre><code class="bash"># yum install -y yum-utils device-mapper-persistent-data lvm2
+</code></pre>
+</li>
+<li><p>设置yum源</p>
+<pre><code class="bash"># yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+</code></pre>
+</li>
+<li><p>可以查看所有仓库中所有docker版本，并选择特定版本安装</p>
+<pre><code class="bash"># yum list docker-ce --showduplicates | sort -r
+</code></pre>
+</li>
+<li><p>安装docker</p>
+<pre><code class="bash"># yum install docker-ce  #由于repo中默认只开启stable仓库，故这里安装的是最新稳定版17.12.0
+# yum install &lt;FQPN&gt;  # 例如：yum install docker-ce-17.12.0.ce
+</code></pre>
+</li>
+</ol>
+<h4 id="安装后配置"><a href="#安装后配置" class="headerlink" title="安装后配置"></a>安装后配置</h4><ol>
+<li><p>验证安装是否成功(有client和service两部分表示docker安装启动都成功了)</p>
+<pre><code class="bash"># docker version
+</code></pre>
+</li>
+<li><p>启动并加入开机启动</p>
+<pre><code class="bash"># systemctl start docker
+# systemctl enable docker
+</code></pre>
+</li>
+</ol>
+
         
     
 
