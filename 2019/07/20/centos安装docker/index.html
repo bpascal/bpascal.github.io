@@ -57,7 +57,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="双例模式,运维,基础,开发,docker">
+    <meta name="keywords" content="双例模式,开发,运维,基础,docker">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -238,11 +238,11 @@
     <meta property="og:title" content="centos7安装docker | 撕裂之谷">
     <meta property="og:image" content="/bpascal.github.io/img/favicon.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="运维"> <meta property="og:article:tag" content="基础"> <meta property="og:article:tag" content="开发"> <meta property="og:article:tag" content="docker"> 
+    <meta property="og:article:tag" content="开发"> <meta property="og:article:tag" content="运维"> <meta property="og:article:tag" content="基础"> <meta property="og:article:tag" content="docker"> 
 
     
         <meta property="article:published_time" content="Sat Jul 20 2019 22:06:14 GMT+0800">
-        <meta property="article:modified_time" content="Sat Jul 20 2019 22:34:37 GMT+0800">
+        <meta property="article:modified_time" content="Sat Aug 17 2019 20:53:16 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2019/07/20/centos安装docker/index.html",
     "headline": "centos7安装docker",
     "datePublished": "Sat Jul 20 2019 22:06:14 GMT+0800",
-    "dateModified": "Sat Jul 20 2019 22:34:37 GMT+0800",
+    "dateModified": "Sat Aug 17 2019 20:53:16 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "双例模式",
@@ -283,7 +283,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",运维,基础,开发,docker双例模式",
+    "keywords": ",开发,运维,基础,docker双例模式",
     "description": "",
 }
 </script>
@@ -571,7 +571,17 @@ file /usr/bin/dockerd from install of docker-ce-17.12.0.ce-1.el7.centos.x86_64 c
 # systemctl enable docker
 </code></pre>
 </li>
+<li><p>使用阿里云加速Docker<br>Docker官方镜像网站部署在外网，因此我们国内下载比较慢。看了一下国内最好的Docker加速服务就是阿里云了。阿里云的其他镜像比如Maven镜像之类的也都不错。<br>首先需要注册一个阿里云的帐号，可能还需要其他一点信息。然后进入容器Hub服务控制台，中间有一个加速器。我们点击它之后，阿里云会为我们创建一个专属加速器地址。<br>然后需要检查Docker客户端的版本，如果小于1.10，只能按照自己系统版本寻找相应的办法了。如果大于等于1.10，就可以直接使用下面的配置方法。配置方法很简单，在/etc/docker/daemon.json中添加一段配置。如果没有该文件则创建。</p>
+<pre><code class="json">{
+ &quot;registry-mirrors&quot;: [&quot;&lt;your accelerate address&gt;&quot;]
+}
+</code></pre>
+</li>
 </ol>
+<p>然后重启Docker服务</p>
+<pre><code class="bash"># systemctl daemon-reload
+# systemctl restart docker
+</code></pre>
 
         
     
