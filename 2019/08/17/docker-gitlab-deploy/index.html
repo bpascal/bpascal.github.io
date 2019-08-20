@@ -242,7 +242,7 @@
 
     
         <meta property="article:published_time" content="Sat Aug 17 2019 21:10:08 GMT+0800">
-        <meta property="article:modified_time" content="Tue Aug 20 2019 14:46:29 GMT+0800">
+        <meta property="article:modified_time" content="Tue Aug 20 2019 14:48:10 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2019/08/17/docker-gitlab-deploy/index.html",
     "headline": "docker下安装Gitlab",
     "datePublished": "Sat Aug 17 2019 21:10:08 GMT+0800",
-    "dateModified": "Tue Aug 20 2019 14:46:29 GMT+0800",
+    "dateModified": "Tue Aug 20 2019 14:48:10 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "双例模式",
@@ -545,7 +545,7 @@
 --volume(v): 共享目录挂载，即 docker 容器内外数据共享（/docker/gitlab/data: 应用程序数据，/docker/gitlab/logs：GitLab 的 log，/docker/gitlab/config：GitLab 的配置文件）
 --e：配置 Gitlab 运行的环境变量
 </code></pre><p>启动后可以使用sudo docker ps命令查看当前所有Docker容器的状态，也可以通过<a href="http://IP:8930来访问gitlab服务" target="_blank" rel="noopener">http://IP:8930来访问gitlab服务</a></p>
-<h4 id="配置Gitlab"><a href="#配置Gitlab" class="headerlink" title="配置Gitlab"></a>配置Gitlab</h4><p>安装完成后访问gitlab页面如果出现下图，说明还没初始化好，需要再等一会<br><img src="http://qiniu.aiipuxcx.club/gitlab502.png" alt=""><br>过一段时间刷新，打开后会提示进行密码修改<br><img src="http://qiniu.aiipuxcx.club/gitlab_changepwd.png" alt=""><br>设置后管理员密码后，就进入登录页面，输入用户名 root 和刚才设置的密码就进入了 gitlab 的控制台。如下图所示</p>
+<h4 id="配置Gitlab"><a href="#配置Gitlab" class="headerlink" title="配置Gitlab"></a>配置Gitlab</h4><p>安装完成后访问gitlab页面如果出现下图，说明还没初始化好，需要再等一会<br><img src="http://qiniu.aiipuxcx.club/gitlab502.png" alt=""><br>过一段时间刷新，打开后会提示进行密码修改<br><img src="http://qiniu.aiipuxcx.club/gitlab_changepwd.png" alt=""><br>设置后管理员密码后，就进入登录页面，输入用户名 root 和刚才设置的密码就进入了 gitlab 的控制台。如下图所示<br><img src="http://qiniu.aiipuxcx.club/git-maint.png" alt=""><br>至此说明gitlab已经安装好，可以开始进行其他操作</p>
 <h4 id="停止Gitlab"><a href="#停止Gitlab" class="headerlink" title="停止Gitlab"></a>停止Gitlab</h4><p>停止并删除gitlab</p>
 <pre><code class="bash">sudo docker stop gitlab
 sudo docker rm gitlab
