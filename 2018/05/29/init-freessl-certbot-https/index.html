@@ -57,7 +57,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="双例模式,开发,基础,运维,Linux,Nginx">
+    <meta name="keywords" content="双例模式,运维,基础,Linux,开发,Nginx">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -238,11 +238,11 @@
     <meta property="og:title" content="通过免费SSL证书服务Let&#39;s Encrypt和certbot给自己的域名添加https证书 | 撕裂之谷">
     <meta property="og:image" content="/bpascal.github.io/img/favicon.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="开发"> <meta property="og:article:tag" content="基础"> <meta property="og:article:tag" content="运维"> <meta property="og:article:tag" content="Linux"> <meta property="og:article:tag" content="Nginx"> 
+    <meta property="og:article:tag" content="运维"> <meta property="og:article:tag" content="基础"> <meta property="og:article:tag" content="Linux"> <meta property="og:article:tag" content="开发"> <meta property="og:article:tag" content="Nginx"> 
 
     
         <meta property="article:published_time" content="Tue May 29 2018 08:48:51 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jun 12 2018 14:45:09 GMT+0800">
+        <meta property="article:modified_time" content="Wed Sep 04 2019 15:53:26 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2018/05/29/init-freessl-certbot-https/index.html",
     "headline": "通过免费SSL证书服务Let's Encrypt和certbot给自己的域名添加https证书",
     "datePublished": "Tue May 29 2018 08:48:51 GMT+0800",
-    "dateModified": "Tue Jun 12 2018 14:45:09 GMT+0800",
+    "dateModified": "Wed Sep 04 2019 15:53:26 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "双例模式",
@@ -283,7 +283,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",开发,基础,运维,Linux,Nginx双例模式",
+    "keywords": ",运维,基础,Linux,开发,Nginx双例模式",
     "description": "",
 }
 </script>
@@ -565,6 +565,12 @@ certbot renew --quiet
 <pre><code># 每月1号5时执行执行一次更新，并重启nginx服务器
 00 05 01 * * /usr/bin/certbot renew --quiet &amp;&amp; /bin/systemctl restart nginx
 </code></pre><p>注意，以上命令中重启nginx的指令根据部署情况可能各有不一样，可以灵活修改</p>
+<p>如果更新的时候有问题，提示：</p>
+<pre><code> Could not decode &#39;status&#39; (u&#39;ready&#39;)
+</code></pre><p>可尝试使用:</p>
+<pre><code class="bash">yum update certbot.noarch python2-acme.noarch python2-certbot.noarch
+</code></pre>
+<p>更新certbot之后再进行更新</p>
 <p>整个流程的配置参考了<a href="https://ruby-china.org/topics/31942" target="_blank" rel="noopener">这里</a></p>
 <p>完成以上配置后，即可正常使用https服务</p>
 
