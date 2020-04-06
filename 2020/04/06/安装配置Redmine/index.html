@@ -242,7 +242,7 @@
 
     
         <meta property="article:published_time" content="Mon Apr 06 2020 21:02:39 GMT+0800">
-        <meta property="article:modified_time" content="Mon Apr 06 2020 21:04:55 GMT+0800">
+        <meta property="article:modified_time" content="Mon Apr 06 2020 21:26:47 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/04/06/安装配置Redmine/index.html",
     "headline": "安装配置Redmine",
     "datePublished": "Mon Apr 06 2020 21:02:39 GMT+0800",
-    "dateModified": "Mon Apr 06 2020 21:04:55 GMT+0800",
+    "dateModified": "Mon Apr 06 2020 21:26:47 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "双例模式",
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装依赖"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装依赖</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装依赖"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装配置Redmine"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装配置Redmine</span></a></li></ol>
     </ul>
     
 
@@ -520,8 +520,23 @@
         <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><ol>
 <li>Ruby安装，参考<a href="https://www.runoob.com/ruby/ruby-installation-unix.html" target="_blank" rel="noopener">这里</a>，通常使用yum安装比较快捷</li>
 </ol>
-<pre><code>sudo yum install ruby
+<pre><code class="bash">sudo yum install ruby
 </code></pre>
+<p>当然也可以下载后进行源码安装，下载<a href="https://www.ruby-lang.org/zh_cn/downloads/" target="_blank" rel="noopener">地址</a>，安装命令为</p>
+<pre><code class="bash"># 解压
+tar -xvzf ruby-2.6.6.tar.gz
+# 安装
+cd ruby-2.6.6
+./configure
+make
+sudo make install
+</code></pre>
+<p>安装完成后可通过如下命令检查安装情况</p>
+<pre><code class="bash">ruby -v
+ruby 2.x.x……
+</code></pre>
+<p>2.安装Mysql<br>可以在<a href="https://www.rivendell.vip/2018/10/19/centoswithmysql/" target="_blank" rel="noopener">这里</a>查看Mysql安装过程。</p>
+<h3 id="安装配置Redmine"><a href="#安装配置Redmine" class="headerlink" title="安装配置Redmine"></a>安装配置Redmine</h3>
         
     
 
