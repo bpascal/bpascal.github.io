@@ -43,7 +43,7 @@
     
     <title>
         
-            关于我 | 
+            mysql新建用户并赋权 | 
         
         撕裂之谷
     </title>
@@ -54,7 +54,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="双例模式">
+    <meta name="keywords" content="双例模式,运维,基础,MySql">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="撕裂之谷">
-    <meta name="msapplication-starturl" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/">
+    <meta name="msapplication-starturl" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="撕裂之谷">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/">
+    <meta property="og:url" content="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="关于我 | 撕裂之谷">
+    <meta property="og:title" content="mysql新建用户并赋权 | 撕裂之谷">
     <meta property="og:image" content="/bpascal.github.io/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="运维"> <meta property="og:article:tag" content="基础"> <meta property="og:article:tag" content="MySql"> 
 
+    
+        <meta property="article:published_time" content="Wed Oct 07 2020 20:40:46 GMT+0800">
+        <meta property="article:modified_time" content="Wed Oct 07 2020 20:44:16 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html" />
+        <link rel="canonical" href="https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html",
+    "headline": "mysql新建用户并赋权",
+    "datePublished": "Wed Oct 07 2020 20:40:46 GMT+0800",
+    "dateModified": "Wed Oct 07 2020 20:44:16 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "双例模式",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logopic.jpg"
+        },
+        "description": "<span style="font-size:36px">撕裂之谷</span>,<span style="font-size:16px">永远相信</span>,<span style="font-size:16px">美好的事情即将发生</span>"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "撕裂之谷",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",运维,基础,MySql双例模式",
+    "description": "",
+}
+</script>
 
 
     
@@ -286,6 +319,30 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+
+
+
 
 <!-- Layouts -->
 
@@ -312,7 +369,7 @@
         
     
             <p class="article-headline-p">
-                关于我
+                mysql新建用户并赋权
             </p>
         </div>
 
@@ -331,7 +388,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>双例模式</strong>
-        <span>5月 19, 2018</span>
+        <span>10月 07, 2020</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -353,13 +410,22 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACX0lEQVR42u3ay07EMAwF0P7/T8MWCZFeO4920OkKMWWSk4VtHF9f//q58PDw8PDw8PDwXsa74uf3+z9/U/10/GZvb3h4eHgneTehtrXdv94ZrzIGj/eGh4eHd56Xh+zxtm6WHx7E/N7w8PDw3sbbEeLHa+Hh4eF9Oi8pl5MQP1++4+Hh4b2Bl//DX/3bHv6BXgseHh5ezKtegJ38+YH7PTw8PLwhrzzSFCywKjE0d4iHh4e3mZeMTOWM3khBws4bynh4eHi7efm1Vi9wrxpXLRwKHh4e3nFerwGRBPRqEsoTDB4eHt5TvGqS6B1NPsDaPFw8PDy8zbzkq2eSQbKt3hGU7/fw8PDwFvGqjYlqEK+2EnoFOh4eHt5TvF5zodqQnS+gb67i8PDw8A7yZkJ/ddQ1AeTNXDw8PLyneONtJcNYvSuu6h7w8PDw3sDrhfWZIriXVBaMq+Lh4eEt4uWXT72wXm129K6+8PDw8E7yqluvfkMVMHMNhoeHh7eb1yuaZ4aoeiNceUsCDw8P7wyvF8qrvLzRkCeDKDHg4eHhLeXl26oCeoE+TxvNNi4eHh7eIl4+FtBrVay9HrvB4+Hh4W3m5YVstVyeH8bqHSgeHh7ebl71yRPATHndWxcPDw/vDK83NlptAfcCfd5WxsPDwzvPS5JBL6zPs/P2BB4eHt55XjXQV0vqa/qJjgwPDw/vZbx8WKpXEI/TEh4eHt7n8vLEkCeSpMiOVsfDw8M7yKuG5vlr/nnS4l4LHh4eXsyrNgKqpLxAH6eWZmLAw8PDW8r7fw8eHh4eHh4eHt4Lnm+z8KWBqVbQvQAAAABJRU5ErkJggg==">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADk0lEQVR42u3aQXIbMQwEQP3/08nVVanIMwC50qF5ctmyyG0dIBDz+mP9WC8EOHDgwIEDBw4cOHB8MccrXv++/udv/rvZ6JXJXu9fnzwLDhw4cOC4x/FLKYo5Wr78r/sP5r+IOHDgwIHjGsf7jd9vEJW0xWoLef4sOHDgwIHjsxxJ2Uuarv0D518IcODAgQPHN3Psr/MSgvaEOHDgwIHjOznagVDSnr1v+fYjqA/fleLAgQMHjkOBhm/++QP5Dhw4cODAsVhJwWuDC20L177DL++PAwcOHDiOcuRBt6SRy+MOSXOYx+bydxveleLAgQMHjpijHRrlhTPBzYtofjlYf6g4cODAgeMaR9tutUGHdnCVD6vygl13tDhw4MCBo+SYhc820YS8rM7Kf30SHDhw4MDxIEdxxVYGC/JdNmOnaF8cOHDgwHGZYzNM2kQWZsQHijoOHDhw4DjKMYsR5IUzJ86h8+vF6L9w4MCBA8dRjn3RmgXg8qjErLTjwIEDB45PceSBhjZMkMfdZiW2HTJFl4M4cODAgeMQR14s3xe5NlTXlva87cz5cODAgQPHPY5N6W0jd7PBUjFMyt8HBw4cOHAc5dg0TrPrufy6MI/K5WcY5jtw4MCBA8eIIy9jm+K3iU3kDWQxEsOBAwcOHNc4ZtGE9jJxH3F7rRcOHDhw4LjNkf9m9jCzK8j2C0FbYnHgwIEDxz2OU9u0F4KzgdOsnB/raHHgwIEDR9mz5LGA/VVd20ZGhbP9ooADBw4cOB7haNutpFS3MYjZqClvC3HgwIEDx22OWambPV5SkmdtWxvFwIEDBw4cNzjawtY2aZtIRNtY5l8XcODAgQPHDY68YWsv4KKjlBd/mw8misrhwIEDB45DHPlwaNaYnbpS3LBGUTkcOHDgwLHmaNukWeAgp8mB8tPiwIEDB44nOTZRhjb01nLP0OshFg4cOHDguMCRD59ml4lthKJt+fJYQ3FXigMHDhw4Fhz52jRabRM4G4DlTDhw4MCB4wbHK16bo+cjq7Nni3bBgQMHDhwXOPLrwlncIT/uqY+kKMk4cODAgeMaR7J9Ms5pj5g/3gY0uhzEgQMHDhyPc+ybqChkUI6mPlZoceDAgQPHIY7koO2xkr1ODaJw4MCBA8czHG2MICm6eRiubQjzj+riXSkOHDhw4DgaaMhXgpUPumbnwYEDBw4cz3BYOHDgwIEDBw4cOHDg+LL1F7fCqjuevVnRAAAAAElFTkSuQmCC">
     
 </ul>
 
     
 
     <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/bpascal.github.io/tags/MySql/">MySql</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/bpascal.github.io/tags/基础/">基础</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/bpascal.github.io/tags/运维/">运维</a>
+    </ul>
     
 
     <!-- Share -->
@@ -375,7 +441,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=关于我&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html&pic=https://bpascal.github.io/bpascal.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=mysql新建用户并赋权&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html&pic=https://bpascal.github.io/bpascal.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -384,7 +450,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=关于我&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html&via=双例模式" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=mysql新建用户并赋权&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html&via=双例模式" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -393,7 +459,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -402,7 +468,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -414,7 +480,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=撕裂之谷&title=关于我&summary=&pics=https://bpascal.github.io/bpascal.github.io/img/favicon.png&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=撕裂之谷&title=mysql新建用户并赋权&summary=&pics=https://bpascal.github.io/bpascal.github.io/img/favicon.png&url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -423,7 +489,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/about/index.html&text=关于我" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://bpascal.github.io/bpascal.github.io/bpascal.github.io/2020/10/07/mysql新建用户并赋权/index.html&text=mysql新建用户并赋权" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -439,40 +505,18 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="自我评价"><a href="#自我评价" class="headerlink" title="自我评价"></a>自我评价</h2><ol>
-<li>热情，勤奋，好学，低调，责任心强，有良好的沟通能力和团队合作精神，以及良好的计算机软件开发和设计基础和较强的学习能力；</li>
-<li>轻度极客，热爱技术，热爱黑科技，热爱互联网并持续关注互联网行业，希望能够在互联网行业发展中实现自身的价值；</li>
-<li>有多年的项目和团队管理经验，能够较高效地管理10-20人的团队完成设计和开发任务，能够根据需求和人员情况制定合理的团队工作计划并对开发过程进行及时有效的管理；熟悉敏捷、CMMI等软件开发管理体系，并且执行过多年的敏捷开发管理；</li>
-<li>有丰富的各种应用程序开发经验，有多个成熟上线的项目，熟悉各类程序开发技能，包括Java技术栈下的各类后台程序开发、Android/iOS等客户端应用程序开发，以及python爬虫和应用程序的开发，同时也有比较丰富的Oracle和MySql等主流数据库的开发和运维经验以及Linux、nginx等服务器环境运维经验；</li>
-<li>有多年的电信行业BSS和OSS支撑系统的设计、开发、实施和维护经验及较丰富的电信行业业务知识，可以很快适应相关行业的需求、设计和开发岗位；</li>
-</ol>
-<hr>
-<h1 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h1><ul>
-<li>双例模式</li>
-<li>技术博客：<a href="https://www.rivendell.vip" target="_blank" rel="noopener">撕裂之谷</a></li>
-<li>Github：<a href="https://github.com/bpascal" target="_blank" rel="noopener">双例模式</a></li>
-<li>职业：程序员</li>
-</ul>
-<hr>
-<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><ul>
-<li>手机：15308408401</li>
-<li>Email：<a href="mailto:bpascal.cn@gmail.com" target="_blank" rel="noopener">bpascal.cn@gmail.com</a></li>
-<li>QQ：286636748</li>
-</ul>
-<hr>
-<h1 id="项目和作品"><a href="#项目和作品" class="headerlink" title="项目和作品"></a>项目和作品</h1><h2 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h2><ul>
-<li><a href="https://github.com/bpascal/nymeria" target="_blank" rel="noopener">Nymeria</a>：一个安卓开发脚手架，对Activity和fragment做了基本的封装，集成了一些常用工具</li>
-<li><a href="https://github.com/bpascal/hodor" target="_blank" rel="noopener">Hodor</a>：基于springboot+mybatis的java后台开发脚手架工程</li>
-<li><a href="https://github.com/bpascal/tars" target="_blank" rel="noopener">TARS</a>：基于itchat的一个python微信个人号机器人项目，可用于简单的机器人应答开发</li>
-</ul>
-<h2 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h2><ul>
-<li><a href="https://www.zybuluo.com/bpascal/note/702267" target="_blank" rel="noopener">创业公司开发环境配置流程</a></li>
-<li><a href="https://www.zybuluo.com/bpascal/note/859615" target="_blank" rel="noopener">CentOS 7 安装wordpress环境</a></li>
-<li><a href="https://www.zybuluo.com/bpascal/note/703041" target="_blank" rel="noopener">CentOS上安装MySQL</a></li>
-</ul>
-<h2 id="演讲和讲义"><a href="#演讲和讲义" class="headerlink" title="演讲和讲义"></a>演讲和讲义</h2><ul>
-<li><a href="https://www.zybuluo.com/bpascal/note/692596" target="_blank" rel="noopener">当我们谈论儿童编程时，我们谈论什么</a></li>
-</ul>
+        <p>mysql数据库管理中，新建用户并赋权的主要命令如下:</p>
+<pre><code class="bash">#1.创建一个新用户 testuser 密码为 testuserpass
+CREATE USER &#39;testuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;testuserpass&#39;;
+#2.创建数据库testDB
+create database testDB;
+#3.执行命令为testuser用户添加使用testDB权限
+grant all privileges on testDB.* to testuser@localhost identified by &#39;testuserpass&#39;;
+#4.执行命令，为testuser用户添加远程访问权限
+GRANT ALL PRIVILEGES ON testDB.* TO &#39;testuser&#39;@&#39;%&#39; IDENTIFIED BY &#39;testuserpass&#39; WITH GRANT OPTION;
+#5.刷新权限表
+flush privileges;
+</code></pre>
 
         
     
@@ -498,6 +542,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/bpascal.github.io/2018/10/19/centoswithmysql/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -684,6 +736,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
